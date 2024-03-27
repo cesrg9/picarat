@@ -1,0 +1,40 @@
+.nav-mod ul {
+    background-color: black;
+    list-style-type: none;
+    display: flex;
+    padding: 0;
+}
+
+.nav-mod li {
+    width: 25%;
+    text-align: center;
+    transition: 0.5s;
+}
+
+.nav-mod li a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+ 
+.cartas {
+
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.footer-padre{
+    background-color: grey;
+    display: flex;
+    flex-direction: row;
+}
+
+.footer-item{
+    width: 50%;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+}
