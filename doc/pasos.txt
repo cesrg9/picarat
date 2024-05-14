@@ -1,0 +1,12 @@
+Para la creación de las páginas se seguirán los siguientes pasos:
+
+PASO 1 --> Estructura de la página y texto mínimo
+PASO 2 --> La página será funcional (desplegable, enlaces, modales)
+PASO 3 --> Si el documento requiere de DOM o info de JS se cargará aquí
+PASO 4 --> Se elegirán las fotos y se pondrán
+PASO 5 --> Implementación y pulimento de estilos en el siguiente orden:
+               - Fuentes
+               - Colores
+               - Fondos
+               - Formas
+               - Animaciones 

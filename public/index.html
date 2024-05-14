@@ -1,42 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/index.css">
   <title>Picarat Café</title>
 </head>
 
 <body>
-  <div id='main'>
-
-    <!-- NAVBAR -->
-    <div class="sidebar">
-      <a href="#">Picarat Café</a>
-      <hr>
-      <ul>
-        <li>
-          <a href="#">Carta</a>
-        </li>
-        <li>
-          <a href="#">Artículos</a>
-        </li>
-        <li>
-          <a href="#">Eventos</a>
-        </li>
-        <li>
-          <a href="#">Reservas</a>
-        </li>
-      </ul>
-      <hr>
-      <a href="#">Accede</a>
-      <a href="#">Registrate</a>
+  <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
+    
+    <div class="seleccionables">
+      <div class="desplegable">
+        <span>Logo de desplegable</span>
+        <ul class ='oculto'>
+          <li>Huevos</li>
+          <li>Aceite</li>
+          <li>Pan</li>
+        </ul>
+      </div>
+      <a href="./index.html">Ir a inicio</a>
     </div>
 
-    <!-- CUERPO DE LA PAGINA -->
+    <div class="logo">
+      <p>LOGO</p> <!-- PASO 5 >> Hay que calcular el logo para que esté centrado -->
+    </div>
+
     <div>
+      <p>Login/Email</p> <!-- PASO 3 >> Muestra Email o Login en caso de que esté o no registrado, enlaces a páginas diferentes (infousuario o login)-->
     </div>
+  </div>
+
+  <div class="main"> <!-- CUERPO PRINCIPAL -->
+
+    <div class="info_container"> <!-- Info de "tjt"-->
+      <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+      </div>
+      <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+      </div>
+      <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+      </div>
+      <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+      </div>
+    </div>
+      
+    <div class="event_container"> <!-- Info de eventos --> <!-- PASO 3 >> Se cargarán un par de eventos de la bd-->
+      <div class="event_info">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+      </div>
+      <div class="event_info">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+      </div>
+      <div class="event_info">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+      </div>
+      <div class="link_eventos">
+        <a href="./eventos.html">>>Ver todos los eventos</a>
+      </div>
+    </div>
+    
   </div>
 </body>
 

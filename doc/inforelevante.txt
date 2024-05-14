@@ -1,0 +1,1 @@
+1. Se reservarán las Clases para los estilos y los IDs para las funcionalidades
