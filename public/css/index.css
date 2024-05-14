@@ -1,40 +1,32 @@
-.nav-mod ul {
-    background-color: black;
-    list-style-type: none;
-    display: flex;
+html body {
+    margin: 0;
     padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
-.nav-mod li {
-    width: 25%;
-    text-align: center;
-    transition: 0.5s;
+.main{
+    display: flex;
+}
+.sidebar{
+    padding: 1rem;
+    display: flex;
+    background-color: #BB7D5C;
+    width: 15%;
+    
+    flex-direction: column;
+    align-items: flex-start;
 }
 
-.nav-mod li a {
-    display: inline-block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
+hr{
+    width: 100%;
+}
+
+a{
     text-decoration: none;
-}
- 
-.cartas {
-
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-around;
+    color: black;
 }
 
-.footer-padre{
-    background-color: grey;
-    display: flex;
-    flex-direction: row;
+ul{
+    list-style: none;
 }
 
-.footer-item{
-    width: 50%;
-    align-items: center;
-    display: flex;
-    flex-direction: row;
-}
