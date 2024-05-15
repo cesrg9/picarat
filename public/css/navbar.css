@@ -12,9 +12,9 @@
    margin-left: 50%;
    position: absolute;
 }
-.oculto{
-   display: none;
-   position: absolute;
+.seleccionables{
+   display: flex;
+   align-items: center;
 }
 
 .desplegable{
@@ -27,11 +27,39 @@
    
 }
 
-.desplegable:hover .oculto{
-   display: block;
+.oculto{
+   display: none;
+   position: absolute;
+   justify-content:space-around;
+   min-width: 160px;
+   color: black;
+   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
    background-color: aliceblue;
+   width: 20%;
+   padding-left: 0;
+   font-size: 21px;
+   margin: 0;
+   list-style: none;
 }
 
-.seleccionables{
-   display: flex;
+.desplegable:hover .oculto{
+   display: block;
+}
+
+.oculto li{
+   border-bottom: 1px solid;
+}
+
+.oculto li:hover{
+   background-color: rgb(158, 132, 132);
+
+}
+
+.icon{
+   width: 4rem;
+}
+
+.navbar-link{
+   color: black;
+   text-decoration: none;
 }
