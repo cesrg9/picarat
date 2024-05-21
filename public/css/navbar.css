@@ -1,65 +1,41 @@
-
 .navbar{
-   width: 100%;
-   display: flex;
-   justify-content:space-between;
-   align-items: center;
-   flex-direction: row;
-   background-color: aqua;
-   height: 4rem;
-}
-.logo{
-   margin-left: 50%;
-   position: absolute;
-}
-.seleccionables{
    display: flex;
    align-items: center;
+   justify-content: space-between;
+   padding: 5px;
+   height: 130px;
+   background-color: #CE6C43;
 }
 
-.desplegable{
-
-   background-color: antiquewhite;
-   padding-left: 5px;
-   padding-right: 5px;
-   justify-content: left;
-   height: 4rem;
-   
+.parte_izq{
+   padding-left: 2.5%;
 }
 
-.oculto{
-   display: none;
-   position: absolute;
-   justify-content:space-around;
-   min-width: 160px;
-   color: black;
-   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-   background-color: aliceblue;
-   width: 20%;
-   padding-left: 0;
-   font-size: 21px;
-   margin: 0;
-   list-style: none;
+.parte_izq span{
+   font-size: 58px;
+   height: 60px;
+   font-weight: bold;
+   font-family: "Italiana", sans-serif;
 }
 
-.desplegable:hover .oculto{
-   display: block;
+.parte_der{
+   font-size: 20px;
+   font-family: "Inter", sans-serif;
 }
 
-.oculto li{
-   border-bottom: 1px solid;
+.parte_der a{
+   margin-right: 48px;
 }
 
-.oculto li:hover{
-   background-color: rgb(158, 132, 132);
-
-}
-
-.icon{
-   width: 4rem;
-}
-
-.navbar-link{
-   color: black;
+.boton{
+   padding: 15px;
+   color: white;
+   background-color: black;
+   border-radius: 10px;
    text-decoration: none;
+}
+
+.boton:hover{
+   transition: 250ms;
+   background-color: #5a5a5a;
 }

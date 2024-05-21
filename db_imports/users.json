@@ -1,0 +1,19 @@
+[
+    {
+        "email" : "cesrg9@gmail.com",
+        "psswd" : "codified_psswd",
+        "tlf"   : "657360254",
+        "nombre": "César Rodríguez González",
+        "admin" : "admin_token"
+    },
+    {
+        "email" : "test@example.com",
+        "psswd" : "codified_psswd",
+        "tlf"   : "555-0151",
+        "nombre": "Ben Dover",
+        "admin" : "False"
+    },
+    {
+        
+    }
+]

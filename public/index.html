@@ -7,31 +7,32 @@
   <link rel="stylesheet" href="./css/navbar.css">
   <link rel="stylesheet" href="./css/index.css">
   <link rel="stylesheet" href="./css/footer.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
   <title>Picarat Café</title>
 </head>
-
+<!--
+  TO DO:
+  - Terminar de pulir los estilos
+  - Llevarme la carga de enventos al js
+  - Agregar enlaces y estilos al navbar
+  - Cambiar los enlaces de las tarjetas
+  - Poner logos y enlace a las RRSS del footer
+  - Revisar los colores
+-->
 <body>
   <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
     
-    <div class="seleccionables">
-      <div class="desplegable">
-        <img src="./img/icons/menu-svgrepo-com.svg" class="icon">
-        <ul class ='oculto'>
-          <a href="./test.html" class="navbar-link"><li> &#11185; Carta</li></a>
-          <a href="./test.html" class="navbar-link"><li> &#11185; Artículos</li></a>
-          <a href="./test.html" class="navbar-link"><li> &#11185; Eventos</li></a>
-          <a href="./test.html" class="navbar-link"><li> &#11185; Reservas</li></a>
-        </ul>
-      </div>
-      <a href="./index.html">Ir a inicio</a>
+    <div class="parte_izq">
+      <span>PICARAT CAFÉ</span> <!-- tendrá función de ir a inicio -->
     </div>
-
-    <div class="logo">
-      <p>LOGO</p> <!-- PASO 5 >> Hay que calcular el logo para que esté centrado -->
-    </div>
-
-    <div>
-      <p>Login/Email</p> <!-- PASO 3 >> Muestra Email o Login en caso de que esté o no registrado, enlaces a páginas diferentes (infousuario o login)-->
+    <div class="parte_der">
+      <a>Carta</a>
+      <a>Artículos</a>
+      <a>Reservas</a>
+      <a href="/login.html" class="boton">Accede</a>
     </div>
   </div>
 
@@ -39,31 +40,86 @@
 
     <div class="info_container"> <!-- Info de "tjt"-->
       <div class="container">
-        <p>Picarat Café nace de la idea de no ser solo una cafetería. Aquí no solo podrás degustar de cafés de especialidad y otras bebidas y cócteles únicos sino que también podrás disfrutar de tu múscica y libros favoritos para acompañar. Con equipos de música de alta calidad podrás disfrutar de la mejor música de manera independiente en lo que disfrutas de tu bebida. Eso cuando no se están celebrando uno de los muchos eventos que toman lugar en el propio local, desde clubs de lectura a conciertos y recitales. Todo en un ambiente cálido, elegante y único. </p>
+        <br>
+        <span class="sobretitulo">Sobre nosotros</span>
+        <p>Picarat Café nace de la idea de no ser solo una cafetería. Aquí no solo podrás degustar de cafés de especialidad, otras bebidas y cócteles únicos sino que también podrás disfrutar de tu múscica y libros favoritos para acompañar. 
+          Con equipos de música de alta calidad podrás disfrutar de la mejor música de manera independiente en lo que disfrutas de tu bebida. 
+          <br><br>
+          Eso cuando no se están celebrando uno de los muchos eventos que toman lugar en el propio local, desde clubs de lectura a conciertos y recitales.
+          <br><br>
+          Todo en un ambiente cálido, elegante y único.</p>
       </div>
       <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+        <br>
+        <span class="sobretitulo">Qué hay de tomar</span>
+        <p>
+          Dentro de nuestra carta podrás disfrutar no solo de cafés únicos y de especialidad, pero si no eres muy de café tenemos otras alternativas para tí:
+          <ul>
+            <li>Cócteles</li>
+            <li>Batidos</li>
+            <li>Repostería artesanal (¡también hay sin gluten!)</li>
+          </ul>
+        </p>
+        <div class="link_pagina">
+          <a href="./test.html">>>Ver todos los eventos</a>
+        </div>
       </div>
       <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+        <br>
+        <span class="sobretitulo">Música</span>
+        <p>
+          ¿Te animas a probar la experiencia tomarte tu café favorito mientras te sumerges en tu música favorita?
+          <br>
+          <br>
+          Consulta nuestro catálogo completo y así podrás decídirte antes incluso de venir al local
+        </p>
+        <div class="link_pagina">
+          <a href="./test.html">>>Ver todos los eventos</a>
+        </div>
       </div>
       <div class="container">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur vero adipisci, officia perspiciatis alias porro vitae tempore, debitis et harum itaque iste est tempora aperiam excepturi, minus praesentium aliquam sint? Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident quaerat, quam id maxime rerum dignissimos quidem, recusandae eum accusamus deserunt, porro aspernatur maiores non pariatur quod hic consectetur enim molestias! Lorem ipsum dolor sit, amet consectetur adipisicing elit. Rerum eum minima ducimus odio! Quod doloribus fugit perspiciatis provident sit ipsam numquam reiciendis. Qui provident sint temporibus nesciunt quos iusto quod.</p>
+        <br>
+        <span class="sobretitulo">Haz tu reserva</span>
+        <p>
+          ¿Lo tienes todo decidido?
+          <br>
+          <br>
+          Entonces no dudes más y reserva tu mesa
+          <br>
+          <br>
+          ¡No te quedes sin probarlo!
+        </p>
+        <div class="link_pagina">
+          <a href="./test.html">>>Ver todos los eventos</a>
+        </div>
       </div>
     </div>
       
     <div class="event_container"> <!-- Info de eventos --> <!-- PASO 3 >> Se cargarán un par de eventos de la bd-->
+      <span class="titulo_eventos">Sobre nosotros</span>
       <div class="event_info">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+        <p>
+          <span class="subtitulo">Evento 1</span>
+          <br><br>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+        </p>
+      </div>
+      <div class="event_info"> <!-- Luego esto me lo llevo a js para hace los DOMs -->
+        <p>
+          <span class="subtitulo">Evento 2</span>
+          <br><br>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+        </p>
       </div>
       <div class="event_info">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+        <p>
+          <span class="subtitulo">Evento 3</span>
+          <br><br>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+        </p>
       </div>
-      <div class="event_info">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
-      </div>
-      <div class="link_eventos">
-        <a href="./eventos.html">>>Ver todos los eventos</a>
+      <div class="link_pagina">
+        <a href="./test.html">>>Ver todos los eventos</a>
       </div>
     </div>
     
@@ -72,15 +128,21 @@
   <div class="footer"> <!-- FOOTER -->
 
     <div class="footer-element">
-      Info de contacto
+      <p class="subtitulo">Contáctanos</p>
+      <p>Email: picarat@cafe.com</p>
+      <p>Teléfono: 555-2638</p>
     </div>
 
     <div class="footer-element">
-      Direccion e info del local
+      <p class="subtitulo">Redes sociales</p>
+      <p>Instagram</p>
+      <p>Twitter</p>
     </div>
 
     <div class="footer-element">
-      Reserva tu mesa
+      <p class="subtitulo">Dónde encontarnos</p>
+      <p>Calle Desengaño 21</p>
+      <p>Pórtugos (Granada)</p>
     </div>
   </div>
 </body>

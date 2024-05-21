@@ -1,6 +1,7 @@
 html body {
     margin: 0;
     padding: 0;
+    font-family: "Inter", sans-serif;
 }
 
 .main {
@@ -11,6 +12,7 @@ html body {
 
 .info_container{
     display: flex;
+    font-size: 18px;
     flex-direction: column;
     width: 75%;
     padding-top: 2.5%;
@@ -18,27 +20,60 @@ html body {
     padding-right: 2.5%;
 }
 .container{
-    border: 1px solid;
+    width: 100%;
+    background-color: white;
+    border-radius: 20px;
     margin-bottom: 2.5%;
+}
+
+.container p{
+    padding-left: 2.5%;
+    padding-right: 10%;
+}
+
+.sobretitulo{
+    padding-left: 2.5%;
+    padding-top: 2.5%;
+    font-weight: bold;
+    font-size: 30px;
 }
 
 .event_container{
+    background-color: white;
+    border-radius: 20px;
     display: flex;
-    border: 1px solid;
     flex-direction: column;
-    width: 15%;
+    font-family: "Inter", sans-serif;
+    font-size: 18px;
+    width: 543px;
+    height: fit-content;
+    margin-top: 2.5%;
     padding-top: 2.5%;
     padding-left: 2.5%;
     padding-right: 2.5%;
+    margin-right: 5%;
 }
 
 .event_info{
-    border: 1px solid;
-    margin-bottom: 2.5%;
+    background-color: rgb(228, 228, 228);
+
+    margin-bottom: 5%;
     
 }
 
-.link_eventos{
+.event_info p{
+    padding: 20px;
+    padding: 20px;
+    padding: 20px;
+}
+
+.subtitulo{
+    font-weight: bold;
+}
+
+.link_pagina{
+    margin-right: 2.5%;
+    margin-bottom: 2.5%;
     display: flex;
     justify-content: flex-end;
 }
