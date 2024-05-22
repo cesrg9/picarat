@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Picarat Café</title>
+</head>
+<!-- 
+    TO DO
+    - Alinear todos los enlaces del header
+    - Cambiar rutas html por rutas de servidor 
+    - Hacer los botones de enviar
+-->
+
+<body>
+    <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
+
+        <div class="parte_izq">
+            <span><a href="./index.html">PICARAT CAFÉ</a></span> <!-- tendrá función de ir a inicio -->
+        </div>
+        <div class="parte_der">
+            <a>Carta</a>
+            <a>Artículos</a>
+            <a>Eventos</a>
+            <a>Reservas</a>
+            <a href="/login.html" class="boton">Accede</a>
+        </div>
+    </div>
+
+    <div class="main"> <!-- CUERPO PRINCIPAL -->
+        <div class="container_login">
+            <div class="titulo">
+                Accede
+            </div>
+            <div class="input_login_padre">
+                <div class="input_login">
+                    <span>Email</span>
+                    <input placeholder="Introduce tu Email">
+                </div>
+                <div class="input_login">
+                    <span>Contraseña</span>
+                    <input placeholder="Introduce tu contraseña">
+                </div>
+            </div>
+                <div class="send" style="padding-top: 5%;">
+                    Aceptar
+                </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="container_signin">
+            <div class="titulo">
+                Regístarte
+            </div>
+            <div class="padre">
+                <div>
+                    <div class="input">
+                        <span>Email</span>
+                        <input placeholder="Email">
+                    </div>
+                    <div class="input">
+                        <span>Contraseña</span>
+                        <input placeholder="Contraseña segura">
+                    </div>
+                </div>
+                <div>
+                    <div class="input">
+                        <span>Nombre</span>
+                        <input placeholder="Nombre completo">
+                    </div>
+                    <div class="input">
+                        <span>Teléfono</span>
+                        <input placeholder="Número de teléfono">
+                    </div>
+                </div>
+            </div>
+            <div class="send">
+                Aceptar
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer"> <!-- FOOTER -->
+
+        <div class="footer-element">
+            <p class="subtitulo">Contáctanos</p>
+            <p>Email: picarat@cafe.com</p>
+            <p>Teléfono: 555-2638</p>
+        </div>
+
+        <div class="footer-element">
+            <p class="subtitulo">Redes sociales</p>
+            <p>Instagram</p>
+            <p>Twitter</p>
+        </div>
+
+        <div class="footer-element">
+            <p class="subtitulo">Dónde encontarnos</p>
+            <p>Calle Desengaño 21</p>
+            <p>Pórtugos (Granada)</p>
+        </div>
+    </div>
+</body>
+
+</html>

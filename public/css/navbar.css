@@ -39,3 +39,16 @@
    transition: 250ms;
    background-color: #5a5a5a;
 }
+
+span a{
+   color: black;
+   text-decoration: none;
+}
+
+.send{
+   margin-top: 2.5%;
+   margin-right: 2.5%;
+   margin-bottom: 2.5%;
+   display: flex;
+   justify-content: flex-end;
+}

@@ -2,5 +2,10 @@
     background-color: #DD8B68;
     display: flex;
     justify-content:space-around;
+    font-size: small;
     
+}
+
+.subtitulo{
+    font-weight: bold;
 }
