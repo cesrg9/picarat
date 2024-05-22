@@ -46,12 +46,13 @@ html body {
     font-family: "Inter", sans-serif;
     font-size: 18px;
     width: 543px;
-    height: fit-content;
+    height: 750px;
     margin-top: 2.5%;
-    padding-top: 2.5%;
     padding-left: 2.5%;
     padding-right: 2.5%;
     margin-right: 5%;
+    overflow-y: scroll;
+    
 }
 
 .event_info{
@@ -62,9 +63,7 @@ html body {
 }
 
 .event_info p{
-    padding: 20px;
-    padding: 20px;
-    padding: 20px;
+    padding: 20px
 }
 
 .subtitulo{
@@ -76,4 +75,12 @@ html body {
     margin-bottom: 2.5%;
     display: flex;
     justify-content: flex-end;
+}
+
+.titulo_eventos{
+    font-weight: bold;
+    font-size: 25px;
+    margin-top: 0;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
 }
