@@ -21,10 +21,21 @@
 .parte_der{
    font-size: 20px;
    font-family: "Inter", sans-serif;
+   margin-right: 48px;
 }
 
-.parte_der a{
-   margin-right: 48px;
+.parte_der .enlace{
+   text-decoration: none;
+   padding: 15px;
+   color:black;
+   margin-right: 30px;
+   border-radius: 10px;
+}
+
+.parte_der .enlace:hover{
+   transition: 250ms;
+   color:white;
+   background-color: #5a5a5a;
 }
 
 .boton{

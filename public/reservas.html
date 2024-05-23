@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/reservas.css">
+    <link rel="stylesheet" href="./css/footer.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <title>Picarat Café</title>
+</head>
+<!-- 
+    TO DO
+    - Alinear todos los enlaces del header
+    - Cambiar rutas html por rutas de servidor 
+    - Hacer los botones de enviar
+    - Terminar los estilos de las reservas
+-->
+
+<body>
+    <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
+
+        <div class="parte_izq">
+            <span><a href="./index.html">PICARAT CAFÉ</a></span> <!-- tendrá función de ir a inicio -->
+        </div>
+        <div class="parte_der">
+            <a href="./carta.html" class="enlace">Carta</a>
+            <a href="./articulos.html" class="enlace">Artículos</a>
+            <a href="./reservas.html" class="enlace">Reservas</a>
+            <a href="./login.html" class="boton">Accede</a>
+        </div>
+    </div>
+
+    <div class="main"> <!-- CUERPO PRINCIPAL -->
+        <div class="historico_reservas">
+            <div class="titulo">
+                Mis reservas
+            </div>
+            <div class="reserva">
+                Fecha: Ayer<br>
+                Nº de personas: 0 <br>
+                Estado: Cancelada
+            </div>
+            <div class="reserva">
+                Fecha: Ayer<br>
+                Nº de personas: 0 <br>
+                Estado: Cancelada
+            </div>
+            <div class="reserva">
+                Fecha: Ayer<br>
+                Nº de personas: 0 <br>
+                Estado: Cancelada
+            </div>
+            <div class="reserva">
+                Fecha: Ayer<br>
+                Nº de personas: 0 <br>
+                Estado: Cancelada
+            </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="form_reservas_padre">
+            <div class="form_reservas">
+                <div class="titulo">
+                    Haz tu reserva
+                </div>
+                <div class="input_form_padre">
+                    <div class="input_form">
+                        <span>Fecha</span>
+                        <input class="date-input" type="date" style="flex-direction: row; align-items: center;">
+                    </div>
+                    <div class="input_form">
+                        <span>Número de personas</span>
+                        <input type="number" placeholder="Introduce un numero">
+                    </div>
+                </div>
+                    <div class="send" style="padding-top: 5%;">
+                        Aceptar
+                    </div>
+            </div>
+            <div class="form_reservas">
+                <div class="titulo">
+                    Apúntate
+                </div>
+                <div class="input_form_padre">
+                    <div class="input_form">
+                        <p>¿Quieres participar en alguno de los eventos que se celebran en el local?</p>
+                    </div>
+                    <div class="input_form">
+                        <span>Selecciona el evento en el que quieras participar</span>
+                        <select>
+                            <option class="evento"></option>
+                            <option class="evento">Evento1</option>
+                            <option class="evento">Evento2</option>
+                            <option class="evento">Evento3</option>
+                        </select>
+                    </div>
+                </div>
+                    <div class="send" style="padding-top: 5%;">
+                        Aceptar
+                    </div>
+            </div>
+        </div>
+            
+    </div>
+
+    <div class="footer"> <!-- FOOTER -->
+
+        <div class="footer-element">
+            <p class="subtitulo">Contáctanos</p>
+            <p>Email: picarat@cafe.com</p>
+            <p>Teléfono: 555-2638</p>
+        </div>
+
+        <div class="footer-element">
+            <p class="subtitulo">Redes sociales</p>
+            <p>Instagram</p>
+            <p>Twitter</p>
+        </div>
+
+        <div class="footer-element">
+            <p class="subtitulo">Dónde encontarnos</p>
+            <p>Calle Desengaño 21</p>
+            <p>Pórtugos (Granada)</p>
+        </div>
+    </div>
+</body>
+
+</html>

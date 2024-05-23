@@ -1,0 +1,207 @@
+html body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.main {
+    display: flex;
+    justify-content:space-around;
+    background-color: beige;
+    width: 100%;
+    align-items: center;
+}
+
+.divider{
+    background-color: grey;
+    width: 2px;
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    height: 610px;
+}
+
+.historico_reservas{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    width: 40%;
+    border-radius: 10px;
+}
+
+.reserva{
+    background-color: lightgray;
+    margin:2.5%;
+}
+
+.titulo{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 2.5%;
+    padding-left: 4%;
+    
+}
+
+.form_reservas_padre{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    
+}
+
+.form_reservas{
+    border-radius: 20px;
+    background-color: white;
+    margin: 2.5%;
+
+}
+
+.input_form_padre{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.input_form{
+    margin-top:5%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.input_form input{
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    height: 48px;
+    align-items: flex-start;
+}
+
+input{
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+input::placeholder{
+    color: #828282;
+    font-size: 16px;
+}
+
+select{
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding-left: 10px;
+    width: 85%;
+    height: 48px;
+}
+.date-input::-webkit-datetime-edit {
+    /* :: Generado por IA */
+    font-family: "Inter", sans-serif;
+}
+select option{
+    font-size: 16px;
+
+}
+/* .container_reservas_padre{
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+    background-color: aqua;
+    align-items: center;
+}
+
+
+
+
+.container_login{
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin: 2.5%;
+    background-color: white;
+    border-radius: 20px;
+    width: 30%;
+    
+}
+
+.input_login_padre{
+
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+}
+
+.input_login{
+    margin-top:10%;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+.input_login input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 48px;
+    align-items: flex-start;
+}
+
+.container_signin{
+    margin: 2.5%;
+    background-color: white;
+    border-radius: 20px;
+    width: 45%;
+}
+
+
+
+.padre{
+    display: flex;
+    width: 100%;
+    justify-content:space-around;
+
+}
+.padre div{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    align-items: center;
+
+}
+
+.padre div .input{
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    width: 50;
+    align-items: flex-start;
+}
+
+.padre div .input input{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 48px;
+    align-items: flex-start;
+}
+
+.send{
+    justify-self: flex-end;
+}
+
+
+
+
+input{
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding-left: 10px;
+}
+
+input::placeholder{
+    color: #828282;
+    font-size: 16px;
+} */

@@ -1,0 +1,82 @@
+html body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    overflow-x: hidden;
+
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    width: 100%;
+    align-items: center;
+}
+
+.padre{
+    width: 100%;
+    display: flex;
+    margin:1%;
+}
+
+.elemento{
+    background-color: white;
+    width: 75%;
+    border-radius: 20px;
+}
+
+.der{
+    justify-content: flex-end;
+    padding-right:2.5%;
+}
+.der > *{
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.izq{
+    justify-content: flex-start;
+    padding-left:2.5%;
+}
+
+.izq > *{
+    display: flex;
+    flex-direction: row;
+}
+
+.foto{
+    display: flex;
+    height: 236px;
+    width: 236px;
+    border-radius: 20px;
+    background-color: grey;
+    justify-content: center;
+    align-items: center;
+    margin: 3%
+
+}
+
+.info_elemento{
+    width: 70%;
+}
+
+.titulo{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 4%;
+    padding-left: 2.5%;
+}
+
+.especificaciones{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2.5%;
+    padding-left: 2.5%;
+    width: 40%;
+}
+
+.descripcion{
+    padding-top: 2.5%;
+    padding-left: 2.5%;
+}

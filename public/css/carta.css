@@ -1,0 +1,58 @@
+html body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    background-color: beige;
+    width: 100%;
+    align-items: center;
+}
+
+.container_padre{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-around;
+    width: 100%;
+    
+}
+
+.elemento{
+    margin-top: 2.5%;
+    background-color: white;
+    border-radius: 15px;
+    width: 380px;
+    height: 200px;
+}
+
+.titulo{
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 4%;
+    padding-left: 4%;
+    
+}
+
+.descripcion{
+    color: grey;
+    padding-top: 4%;
+    padding-left: 4%;
+    font-weight: 500;
+}
+
+.texto{
+    padding-left: 4%;
+}
+
+.precio{
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 8%;
+    width: 95%;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(133, 133, 133);
+}
