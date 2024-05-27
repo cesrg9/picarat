@@ -11,20 +11,15 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
     <title>Picarat Café</title>
 </head>
-<!-- 
-    TO DO
-    - Alinear todos los enlaces del header
-    - Cambiar rutas html por rutas de servidor 
-    - Hacer los botones de enviar
--->
 
 <body>
     <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
 
         <div class="parte_izq">
-            <span><a href="./index.html">PICARAT CAFÉ</a></span> <!-- tendrá función de ir a inicio -->
+            <span><a href="./index.html">PICARAT CAFÉ</a></span>
         </div>
         <div class="parte_der">
             <a href="./carta.html" class="enlace">Carta</a>
@@ -42,16 +37,16 @@
             <div class="input_login_padre">
                 <div class="input_login">
                     <span>Email</span>
-                    <input type="email" placeholder="Introduce tu Email">
+                    <input type="email" id='email_login' placeholder="Introduce tu Email">
                 </div>
                 <div class="input_login">
                     <span>Contraseña</span>
-                    <input type="password" placeholder="Introduce tu contraseña">
+                    <input type="password" id="pssw_login" placeholder="Introduce tu contraseña">
                 </div>
             </div>
-                <div class="send" style="padding-top: 5%;">
-                    Aceptar
-                </div>
+            <button class="btn_open" id="btn_open">
+                Aceptar
+            </button>
         </div>
 
         <div class="divider"></div>
@@ -64,27 +59,27 @@
                 <div>
                     <div class="input">
                         <span>Email</span>
-                        <input type="email" placeholder="Email">
+                        <input type="email" id="email" placeholder="Email">
                     </div>
                     <div class="input">
                         <span>Contraseña</span>
-                        <input type="password" placeholder="Contraseña segura">
+                        <input type="password" id="pssw" placeholder="Contraseña segura">
                     </div>
                 </div>
                 <div>
                     <div class="input">
                         <span>Nombre</span>
-                        <input placeholder="Nombre completo">
+                        <input placeholder="Nombre completo" id="nombre">
                     </div>
                     <div class="input">
                         <span>Teléfono</span>
-                        <input placeholder="Número de teléfono">
+                        <input placeholder="Número de teléfono" id="tlf">
                     </div>
                 </div>
             </div>
-            <div class="send">
+            <button class="btn_open" id="btn_open2">
                 Aceptar
-            </div>
+            </button>
         </div>
 
     </div>
@@ -109,6 +104,16 @@
             <p>Pórtugos (Granada)</p>
         </div>
     </div>
+
+    <dialog id="modal1" class="modal_confirmacion"> <!-- Modal de info de eventos-->
+
+        
+        <hr>
+        <button class="btn_close">Cerrar</button>
+    </dialog>
+
 </body>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/login.js"></script>
 </html>

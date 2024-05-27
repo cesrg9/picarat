@@ -11,20 +11,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
   <title>Picarat Café</title>
 </head>
-<!--
-  TO DO:
-  - Terminar de pulir los estilos
-  - Llevarme la carga de enventos al js
-  - Agregar enlaces y estilos al navbar
-  - Cambiar los enlaces de las tarjetas
-  - Poner logos y enlace a las RRSS del footer
-  - Revisar los colores
--->
+
 <body>
   <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
-    
+
     <div class="parte_izq">
       <span><a href="./index.html">PICARAT CAFÉ</a></span> <!-- tendrá función de ir a inicio -->
     </div>
@@ -33,7 +28,7 @@
       <a href="./articulos.html" class="enlace">Artículos</a>
       <a href="./reservas.html" class="enlace">Reservas</a>
       <a href="./login.html" class="boton">Accede</a>
-</div>
+    </div>
   </div>
 
   <div class="main"> <!-- CUERPO PRINCIPAL -->
@@ -42,26 +37,32 @@
       <div class="container">
         <br>
         <span class="sobretitulo">Sobre nosotros</span>
-        <p>Picarat Café nace de la idea de no ser solo una cafetería. Aquí no solo podrás degustar de cafés de especialidad, otras bebidas y cócteles únicos sino que también podrás disfrutar de tu múscica y libros favoritos para acompañar. 
-          Con equipos de música de alta calidad podrás disfrutar de la mejor música de manera independiente en lo que disfrutas de tu bebida. 
+        <p>Picarat Café nace de la idea de no ser solo una cafetería. Aquí no solo podrás degustar de cafés de
+          especialidad, otras bebidas y cócteles únicos sino que también podrás disfrutar de tu múscica y libros
+          favoritos para acompañar.
+          Con equipos de música de alta calidad podrás disfrutar de la mejor música de manera independiente en lo que
+          disfrutas de tu bebida.
           <br><br>
-          Eso cuando no se están celebrando uno de los muchos eventos que toman lugar en el propio local, desde clubs de lectura a conciertos y recitales.
+          Eso cuando no se están celebrando uno de los muchos eventos que toman lugar en el propio local, desde clubs de
+          lectura a conciertos y recitales.
           <br><br>
-          Todo en un ambiente cálido, elegante y único.</p>
+          Todo en un ambiente cálido, elegante y único.
+        </p>
       </div>
       <div class="container">
         <br>
         <span class="sobretitulo">Qué hay de tomar</span>
         <p>
-          Dentro de nuestra carta podrás disfrutar no solo de cafés únicos y de especialidad, pero si no eres muy de café tenemos otras alternativas para tí:
-          <ul>
-            <li>Cócteles</li>
-            <li>Batidos</li>
-            <li>Repostería artesanal (¡también hay sin gluten!)</li>
-          </ul>
+          Dentro de nuestra carta podrás disfrutar no solo de cafés únicos y de especialidad, pero si no eres muy de
+          café tenemos otras alternativas para tí:
+        <ul>
+          <li>Cócteles</li>
+          <li>Batidos</li>
+          <li>Repostería artesanal (¡también hay sin gluten!)</li>
+        </ul>
         </p>
         <div class="link_pagina">
-          <a href="./test.html">>>Ver todos los eventos</a>
+          <a href="./carta.html" class="go_to">&#x21AA; Ver toda la carta</a>
         </div>
       </div>
       <div class="container">
@@ -74,7 +75,7 @@
           Consulta nuestro catálogo completo y así podrás decídirte antes incluso de venir al local
         </p>
         <div class="link_pagina">
-          <a href="./test.html">>>Ver todos los eventos</a>
+          <a href="./articulos.html" class="go_to"> &#x21AA; Ver todos los artículos</a>
         </div>
       </div>
       <div class="container">
@@ -90,60 +91,75 @@
           ¡No te quedes sin probarlo!
         </p>
         <div class="link_pagina">
-          <a href="./test.html">>>Ver todos los eventos</a>
+          <a href="./reservas.html" class="go_to"> &#x21AA; Ver todas las reservas</a>
         </div>
       </div>
     </div>
-      
-    <div class="event_container"> <!-- Info de eventos --> <!-- PASO 3 >> Se cargarán un par de eventos de la bd-->
+
+    <div class="event_container"> <!-- Info de eventos -->
       <span class="titulo_eventos">Próximos Eventos</span>
       <div class="event_info">
         <p>
-          <span class="subtitulo">Evento 1</span>
+          <span class="subtitulo">Evento</span>
           <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
+          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+          ipsam pariatur?
         </p>
-      </div>
-      <div class="event_info"> <!-- Luego esto me lo llevo a js para hace los DOMs -->
-        <p>
-          <span class="subtitulo">Evento 2</span>
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
-        </p>
+        <div class="btn_open" id="btn_open">
+          Aceptar
+        </div>
       </div>
       <div class="event_info">
         <p>
-          <span class="subtitulo">Evento 3</span>
+          <span class="subtitulo">Evento</span>
           <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
+          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+          ipsam pariatur?
         </p>
+        <div class="btn_open">
+          Aceptar
+        </div>
       </div>
       <div class="event_info">
         <p>
-          <span class="subtitulo">Evento 3</span>
+          <span class="subtitulo">Evento</span>
           <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
+          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+          ipsam pariatur?
         </p>
+        <div class="btn_open">
+          Aceptar
+        </div>
       </div>
       <div class="event_info">
         <p>
-          <span class="subtitulo">Evento 3</span>
+          <span class="subtitulo">Evento</span>
           <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
+          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+          ipsam pariatur?
         </p>
+        <div class="btn_open">
+          Aceptar
+        </div>
       </div>
       <div class="event_info">
         <p>
-          <span class="subtitulo">Evento 3</span>
+          <span class="subtitulo">Evento</span>
           <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid ipsam pariatur?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
+          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+          ipsam pariatur?
         </p>
-      </div>
-      <div class="link_pagina">
-        <a href="./test.html">>>Ver todos los eventos</a>
+        <div class="btn_open">
+          Aceptar
+        </div>
       </div>
     </div>
-    
+
   </div>
 
   <div class="footer"> <!-- FOOTER -->
@@ -166,6 +182,24 @@
       <p>Pórtugos (Granada)</p>
     </div>
   </div>
+
+  <dialog id="modal1" class="modal1"> <!-- Modal de info de eventos-->
+    <h3>Título del evento</h3>
+    <hr>
+    <p><b>Fecha: </b><span>dd/mm/aaaa</span></p>
+    <p><b>Organizador: </b><span>Nombre / Empresa</span></p>
+    <p><b>Descripción: </b><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
+      nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+      ipsam pariatur?</span></p>
+    <hr>
+    <button class="btn_close" onclick="alertswal()">Cerrar</button>
+ </dialog>
+
 </body>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/index.js"></script>
+
+<script>
+</script>
 </html>

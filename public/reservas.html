@@ -11,15 +11,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
+
     <title>Picarat Café</title>
 </head>
-<!-- 
-    TO DO
-    - Alinear todos los enlaces del header
-    - Cambiar rutas html por rutas de servidor 
-    - Hacer los botones de enviar
-    - Terminar los estilos de las reservas
--->
 
 <body>
     <div class="navbar"> <!-- HE AQUÍ EL NAVBAR-->
@@ -41,24 +36,24 @@
                 Mis reservas
             </div>
             <div class="reserva">
-                Fecha: Ayer<br>
-                Nº de personas: 0 <br>
-                Estado: Cancelada
+                <span>Fecha:</span> Ayer<br>
+                <span>Nº de personas:</span> 0 <br>
+                <span>Estado:</span> Cancelada
             </div>
             <div class="reserva">
-                Fecha: Ayer<br>
-                Nº de personas: 0 <br>
-                Estado: Cancelada
+                <span>Fecha:</span> Ayer<br>
+                <span>Nº de personas:</span> 0 <br>
+                <span>Estado:</span> Cancelada
             </div>
             <div class="reserva">
-                Fecha: Ayer<br>
-                Nº de personas: 0 <br>
-                Estado: Cancelada
+                <span>Fecha:</span> Ayer<br>
+                <span>Nº de personas:</span> 0 <br>
+                <span>Estado:</span> Cancelada
             </div>
             <div class="reserva">
-                Fecha: Ayer<br>
-                Nº de personas: 0 <br>
-                Estado: Cancelada
+                <span>Fecha:</span> Ayer<br>
+                <span>Nº de personas:</span> 0 <br>
+                <span>Estado:</span> Cancelada
             </div>
         </div>
 
@@ -72,16 +67,17 @@
                 <div class="input_form_padre">
                     <div class="input_form">
                         <span>Fecha</span>
-                        <input class="date-input" type="date" style="flex-direction: row; align-items: center;">
+                        <input class="date-input" id="dia_reserva" type="date"
+                            style="flex-direction: row; align-items: center;">
                     </div>
                     <div class="input_form">
                         <span>Número de personas</span>
-                        <input type="number" placeholder="Introduce un numero">
+                        <input type="number" id="comensales_reserva" placeholder="Introduce un numero">
                     </div>
                 </div>
-                    <div class="send" style="padding-top: 5%;">
-                        Aceptar
-                    </div>
+                <button class="btn_open" id="btn_open">
+                    Aceptar
+                </button>
             </div>
             <div class="form_reservas">
                 <div class="titulo">
@@ -93,7 +89,7 @@
                     </div>
                     <div class="input_form">
                         <span>Selecciona el evento en el que quieras participar</span>
-                        <select>
+                        <select id="reserva_evento">
                             <option class="evento"></option>
                             <option class="evento">Evento1</option>
                             <option class="evento">Evento2</option>
@@ -101,12 +97,12 @@
                         </select>
                     </div>
                 </div>
-                    <div class="send" style="padding-top: 5%;">
-                        Aceptar
-                    </div>
+                <button class="btn_open" id="btn_open2">
+                    Aceptar
+                </button>
             </div>
         </div>
-            
+
     </div>
 
     <div class="footer"> <!-- FOOTER -->
@@ -130,5 +126,7 @@
         </div>
     </div>
 </body>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="./js/reservas.js"></script>
 
 </html>

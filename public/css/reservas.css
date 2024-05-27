@@ -29,8 +29,14 @@ html body {
 }
 
 .reserva{
+    border-radius: 10px;
     background-color: lightgray;
     margin:2.5%;
+    padding: 2.5%;
+}
+
+.reserva span{
+    font-weight: 700;
 }
 
 .titulo{
@@ -52,7 +58,8 @@ html body {
     border-radius: 20px;
     background-color: white;
     margin: 2.5%;
-
+    display: flex;
+    flex-direction: column;
 }
 
 .input_form_padre{
@@ -71,6 +78,7 @@ html body {
 }
 
 .input_form input{
+    margin-top: 2%;
     display: flex;
     flex-direction: column;
     width: 85%;
@@ -90,6 +98,7 @@ input::placeholder{
 }
 
 select{
+    margin-top: 2%;
     border: 1px solid #E0E0E0;
     border-radius: 8px;
     padding-left: 10px;
@@ -104,6 +113,37 @@ select option{
     font-size: 16px;
 
 }
+
+.btn_close{
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.btn_open{
+    font-size: 16px;
+    padding: 10px;
+    color: white;
+    align-self: flex-end;
+    background-color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 25%;
+    margin: 20px;
+}
+
+.modal_confirmacion{
+    max-width: 50%;
+    border-radius: 8px;
+}
+
+.modal_confirmacion::backdrop{
+    transition: ease-in 500ms;
+    background-color: rgb(0,0,0,0.5);
+}
+
+
 /* .container_reservas_padre{
     display: flex;
     flex-direction: column;

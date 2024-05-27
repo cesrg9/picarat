@@ -47,6 +47,8 @@ html body {
 }
 
 .container_signin{
+    display: flex;
+    flex-direction: column;
     margin: 2.5%;
     background-color: white;
     border-radius: 20px;
@@ -113,4 +115,33 @@ input{
 input::placeholder{
     color: #828282;
     font-size: 16px;
+}
+
+.btn_close{
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    width: fit-content;
+}
+
+.btn_open{
+    font-size: 16px;
+    padding: 10px;
+    color: white;
+    align-self: flex-end;
+    background-color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    width: 25%;
+    margin: 20px;
+}
+
+.modal_confirmacion{
+    max-width: 50%;
+    border-radius: 8px;
+}
+
+.modal_confirmacion::backdrop{
+    transition: ease-in 500ms;
+    background-color: rgb(0,0,0,0.5);
 }
