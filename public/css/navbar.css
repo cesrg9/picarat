@@ -4,7 +4,7 @@
    justify-content: space-between;
    padding: 5px;
    height: 100px;
-   background-color: #9F451B;
+   background-color: rgb(72, 106, 49);
 }
 
 .parte_izq{
@@ -35,20 +35,20 @@
 .parte_der .enlace:hover{
    transition: 250ms;
    color:white;
-   background-color: #5a5a5a;
+   background-color: #6b6b6b;
 }
 
 .boton{
    padding: 15px;
    color: white;
-   background-color: black;
+   background-color: #4b3a2b;
    border-radius: 10px;
    text-decoration: none;
 }
 
 .boton:hover{
    transition: 250ms;
-   background-color: #5a5a5a;
+   background-color: #6b6b6b;
 }
 
 span a{

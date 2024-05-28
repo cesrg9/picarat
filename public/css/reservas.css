@@ -7,7 +7,7 @@ html body {
 .main {
     display: flex;
     justify-content:space-around;
-    background-color: beige;
+    background-color: rgb(236, 236, 199);
     width: 100%;
     align-items: center;
 }
@@ -30,7 +30,7 @@ html body {
 
 .reserva{
     border-radius: 10px;
-    background-color: lightgray;
+    background-color: rgb(207,195,150);
     margin:2.5%;
     padding: 2.5%;
 }
@@ -105,42 +105,28 @@ select{
     width: 85%;
     height: 48px;
 }
+
 .date-input::-webkit-datetime-edit {
-    /* :: Generado por IA */
     font-family: "Inter", sans-serif;
 }
+
 select option{
     font-size: 16px;
 
 }
 
-.btn_close{
-    background-color: black;
-    color: white;
-    border-radius: 8px;
-    width: fit-content;
-}
+
 
 .btn_open{
     font-size: 16px;
     padding: 10px;
     color: white;
     align-self: flex-end;
-    background-color: black;
+    background-color: #4b3a2b;
     border-radius: 10px;
     text-decoration: none;
     width: 25%;
     margin: 20px;
-}
-
-.modal_confirmacion{
-    max-width: 50%;
-    border-radius: 8px;
-}
-
-.modal_confirmacion::backdrop{
-    transition: ease-in 500ms;
-    background-color: rgb(0,0,0,0.5);
 }
 
 

@@ -1,6 +1,6 @@
 .footer{
-    padding: 10px;
-    background-color: #696039;
+    padding-top: 20px;
+    background-color: rgb(100,147,68);
     display: flex;
     justify-content:space-around;
     font-size: small;

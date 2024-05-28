@@ -6,7 +6,7 @@ html body {
 
 .main {
     display: flex;
-    background-color: beige;
+    background-color: rgb(236, 236, 199);
     width: 100%;
 }
 
