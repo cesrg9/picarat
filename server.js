@@ -17,6 +17,20 @@ app.route('/login')
     return res.sendFile(path.join(__dirname, 'public', 'login.html'))
 })
 
+app.route('/reservas')
+  .get((_req, res) => {
+    return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
+})
+
+app.route('/carta')
+  .get((_req, res) => {
+    return res.sendFile(path.join(__dirname, 'public', 'carta.html'))
+})
+
+app.route('/articulos')
+  .get((_req, res) => {
+    return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
+})
 
 app.listen(port, function () {
     console.log('Servidor iniciado en puerto:', port);
