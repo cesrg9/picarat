@@ -98,66 +98,6 @@
 
     <div class="event_container"> <!-- Info de eventos -->
       <span class="titulo_eventos">Próximos Eventos</span>
-      <div class="event_info">
-        <p>
-          <span class="subtitulo">Evento</span>
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
-          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
-          ipsam pariatur?
-        </p>
-        <div class="btn_open" id="btn_open">
-          + Info
-        </div>
-      </div>
-      <div class="event_info">
-        <p>
-          <span class="subtitulo">Evento</span>
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
-          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
-          ipsam pariatur?
-        </p>
-        <div class="btn_open">
-          + Info
-        </div>
-      </div>
-      <div class="event_info">
-        <p>
-          <span class="subtitulo">Evento</span>
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
-          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
-          ipsam pariatur?
-        </p>
-        <div class="btn_open">
-          + Info
-        </div>
-      </div>
-      <div class="event_info">
-        <p>
-          <span class="subtitulo">Evento</span>
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
-          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
-          ipsam pariatur?
-        </p>
-        <div class="btn_open">
-          + Info
-        </div>
-      </div>
-      <div class="event_info">
-        <p>
-          <span class="subtitulo">Evento</span>
-          <br><br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla voluptate consequatur
-          nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
-          ipsam pariatur?
-        </p>
-        <div class="btn_open">
-          + Info
-        </div>
-      </div>
     </div>
 
   </div>
@@ -184,16 +124,16 @@
   </div>
 
   <dialog id="modal1" class="modal1"> <!-- Modal de info de eventos-->
-    <h3>Título del evento</h3>
+    <h3 id="titulo_evento">Título del evento</h3>
     <hr>
-    <p><b>Fecha: </b><span>dd/mm/aaaa</span></p>
-    <p><b>Organizador: </b><span>Nombre / Empresa</span></p>
-    <p><b>Descripción: </b><span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla
+    <p><b>Fecha: </b><span id="fecha_evento">dd/mm/aaaa</span></p>
+    <p><b>Organizador: </b><span id="organizador_evento">Nombre / Empresa</span></p>
+    <p><b>Descripción: </b><span id="descripcion_evento">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla
         voluptate consequatur
         nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
         ipsam pariatur?</span></p>
     <hr>
-    <button class="btn_close" onclick="alertswal()">Cerrar</button>
+    <button class="btn_close">Cerrar</button>
   </dialog>
 
 </body>
