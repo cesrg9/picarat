@@ -1,0 +1,33 @@
+[{
+  "_id": {
+    "$oid": "665745462ff90a73e1a320e1"
+  },
+  "data": {
+    "Titulo": "Jhon Lemon",
+    "Descripcion": "Té de Limón con notas de canela acompañado por unas pastas exquisitas pastas artesanales de té verde",
+    "Precio": "5.00",
+    "Disponibilidad": true
+  }
+},
+{
+  "_id": {
+    "$oid": "665746882ff90a73e1a320e4"
+  },
+  "data": {
+    "Titulo": "Sabát Negro",
+    "Descripcion": "Café negro doble de origen arábigo. <br><br> Fuerte a la par que aromático",
+    "Precio": "3.50",
+    "Disponibilidad": true
+  }
+},
+{
+  "_id": {
+    "$oid": "665746b42ff90a73e1a320e6"
+  },
+  "data": {
+    "Titulo": "Air, Soil and Water",
+    "Descripcion": "Tabla de tartaletas de crema de chocolate, limón y pistacho <br><br> Opción sin gluten",
+    "Precio": "6.00",
+    "Disponibilidad": true
+  }
+}]

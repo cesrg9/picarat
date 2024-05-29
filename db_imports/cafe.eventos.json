@@ -1,0 +1,45 @@
+[{
+  "_id": {
+    "$oid": "6656d7ec2ff90a73e1a320db"
+  },
+  "data": {
+    "Titulo": "Club de Lectura",
+    "Descripcion": "Únete a nosotros en el Club de Lectura para una noche llena de intriga y suspense. En esta ocasión, discutiremos el bestseller 'La Sombra del Asesino' de Julia Navarro. ¡Comparte tus teorías y descubre quién es el asesino!",
+    "Fecha": "15-06-2024 19:00",
+    "Estado": "Pendiente",
+    "Participantes": [
+      "email1@ejemplo.com",
+      "email2@ejemplo.com"
+    ],
+    "Organizador": "Librería La Tarara"
+  }
+},
+{
+  "_id": {
+    "$oid": "6656d8392ff90a73e1a320dd"
+  },
+  "data": {
+    "Titulo": "Jam Session",
+    "Descripcion": "Una experiencia única donde la música fluye libremente, sin setlists ni ensayos, solo la pasión por la música. Un grupo de músicos de diferentes estilos y géneros se reunen en el escenario y la música surge en el momento, con improvisaciones épicas y momentos de conexión entre los músicos y el público",
+    "Fecha": "22-04-2024 22:00",
+    "Estado": "Completado",
+    "Participantes": [
+      "email1@ejemplo.com",
+      "email2@ejemplo.com"
+    ],
+    "Organizador": "The Lighthouse Music Group"
+  }
+},
+{
+  "_id": {
+    "$oid": "665742e32ff90a73e1a320df"
+  },
+  "data": {
+    "Titulo": "Club de la Lucha",
+    "Descripcion": "Primera regla del Club de la Lucha: no hablas del Club de la Lucha.<br>\nSegunda regla del Club de la Lucha: no hablas del Club de la Lucha.<br>\nTercera regla del Club de la Lucha: si alguien dice 'stop' o tiene una lesión, la lucha se detiene.<br>\nCuarta regla del Club de la Lucha: solo dos personas luchan a la vez.<br>\nQuinta regla del Club de la Lucha: solo luchas sin camisa.<br>\nSexta regla del Club de la Lucha: las luchas son sin límite de tiempo.<br>\nSéptima regla del Club de la Lucha: luchas hasta que alguien gane.<br>\nOctava y última regla del Club de la Lucha: si esta es tu primera noche en el Club de la Lucha, tienes que luchar.",
+    "Fecha": "13-12-2024",
+    "Estado": "Pendiente",
+    "Participantes": [],
+    "Organizador": "David Fincher"
+  }
+}]
