@@ -52,18 +52,3 @@ function cargarCarta(carta) {
 
   }
 }
-
-`<div class="elemento">
-<div class="titulo">
-    Título del elemento
-</div>
-<div class="descripcion">
-    Descripción
-</div>
-<div class="texto">
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Id dolor aliquid, alias ducimus quas itaque.
-</div>
-<div class="precio">
-    Precio: x.xx€
-</div>
-</div>`

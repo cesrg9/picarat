@@ -35,16 +35,34 @@ app.route('/carta').get((_req, res) => {
     carta = await MongoDB.fetch_all(req.body.coleccion)
     res.send(carta)
   } catch (error){
-    // console.log(error)
+    console.log(error)
+  }
+
+})
+
+app.route('/articulos')
+.get((_req, res) => {
+  return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
+}).post(async (req,res) => {  
+
+  try{
+    articulos = await MongoDB.fetch_all(req.body.coleccion)
+    console.log(articulos)
+    res.send(articulos)
+  } catch (error){
+    console.log(error)
   }
 
 })
 
 
-// app.route('/login')
-//   .get((_req, res) => {
-//     return res.sendFile(path.join(__dirname, 'public', 'login.html'))
-// })
+app.route('/login')
+  .get((req, res) => {
+
+    console.log(req)
+
+    return res.sendFile(path.join(__dirname, 'public', 'login.html'))
+})
 
 // app.route('/reservas')
 //   .get((_req, res) => {
@@ -52,10 +70,7 @@ app.route('/carta').get((_req, res) => {
 // })
 
 
-// app.route('/articulos')
-//   .get((_req, res) => {
-//     return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
-// })
+
 
 
 app.post('/getInfoEvento', async (req, res) => {
