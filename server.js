@@ -27,9 +27,17 @@ app.route('/')
   }
 })
 
-app.route('/carta')
-  .get((_req, res) => {
+app.route('/carta').get((_req, res) => {
     return res.sendFile(path.join(__dirname, 'public', 'carta.html'))
+}).post(async (req,res) => {
+
+  try{
+    carta = await MongoDB.fetch_all(req.body.coleccion)
+    res.send(carta)
+  } catch (error){
+    // console.log(error)
+  }
+
 })
 
 
