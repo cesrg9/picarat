@@ -2,13 +2,39 @@ $('#btn_open').click(function () {
 
     let email = document.getElementById('email_login').value
     let pssw = document.getElementById('pssw_login').value 
+    raw = {
+        email : email,
+        pssw : pssw
+    }
 
-    Swal.fire({
-        title: "¡Acceso permitido!",
-        text: "Ya puedes acceder a todas las funciones como usuario",
-        icon: "success"
-      });
+    $.ajax({
+        url: '/login',
+        type: 'POST',
+        data: JSON.stringify(raw),
+        contentType: 'application/json',
+        success: async (response) => {
+            if(response == 'ok'){
+                Swal.fire({
+                    title: "¡Acceso permitido!",
+                    text: "Ya puedes acceder a todas las funciones como usuario",
+                    icon: "success"
+                });
+                document.getElementById('error').style.display = 'none'
+            } else {
+                document.getElementById('error').style.display = 'flex'
+            }
+        }
+    })
+
+
+
+
 })
+
+
+
+
+
 
 $('#btn_open2').click(function () {
 
@@ -17,10 +43,29 @@ $('#btn_open2').click(function () {
     let nombre = document.getElementById('nombre').value
     let tlf = document.getElementById('tlf').value
 
+    raw = {
+        email : email,
+        pssw : pssw,
+        nombre : nombre,
+        tlf : tlf
+    }
 
-    Swal.fire({
-        title: "Oops...",
-        text: "Ya existe un usuario registrado con ese correo",
-        icon: "error"
-    });
+    $.ajax({
+        url: '/register',
+        type: 'POST',
+        data: JSON.stringify(raw),
+        contentType: 'application/json',
+        success: async (response) => {
+            if(response == 'ok'){
+                Swal.fire({
+                    title: "¡Ya te has registrado!",
+                    text: "Ya puedes acceder a todas las funciones como usuario",
+                    icon: "success"
+                });
+                document.getElementById('error2').style.display = 'none'
+            } else {
+                document.getElementById('error2').style.display = 'flex'
+            }
+        }
+    })
 })

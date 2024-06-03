@@ -52,5 +52,52 @@ async function fetchOne(id, coleccion){
 
 }
 
-module.exports = {fetch_all, fetchOne
+async function getUserData(email, pssw){
+    await MongoConnection.connect()
+    const collection = bd.collection('usuarios')
+
+    const query = { $and : [ {"data.email" : email}, {"data.pssw" : pssw} ]}
+
+    const result = collection.find(query)
+    let results = []
+
+    for await (const doc of result) {
+        results.push(doc)
+    }
+
+    await MongoConnection.close()
+    return results
+}
+
+async function newUser(info){
+    await MongoConnection.connect()
+    const collection = bd.collection('usuarios')
+
+    try {
+        const data = {
+            'data' : {
+                'email' : info.email,
+                'pssw' : info.pssw,
+                'nombre' : info.nombre,
+                'tlf' : info.tlf
+            }
+        }
+    
+        response = await collection.insertOne(data)
+        
+        return response 
+        
+    } catch (error) {
+
+        return error
+        
+    } finally {
+        
+        await MongoConnection.close()
+
+    }
+
+}
+
+module.exports = {fetch_all, fetchOne, getUserData, newUser
                  }
