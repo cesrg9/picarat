@@ -20,6 +20,9 @@
     - Añadir que si no está disponible no se muetre
     - ** SI DA TIEMPO ** Hazme los estilos bonicos anda
 
+    - Por seguridad, ¿la contraseña va en la sesion?
+    - Validar entrada de datos
+    - Afinar el tema de las reservas, hacerlo más bonito
 */
 
 
@@ -116,10 +119,24 @@ app.route('/login')
     return res.send('error')
   }
 })
-
 app.route('/reservas')
-  .get((_req, res) => {
+  .get((req, res) => {
+
+    req.session.email = 'email'
+
+    if(!req.session.email){
+      return res.redirect('/login')
+    }
     return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
+}).post(async (req,res) =>{
+
+  try{
+    articulos = await MongoDB.fetch_all(req.body.coleccion)
+    res.send(articulos)
+  } catch (error){
+    console.log(error)
+  }
+
 })
 
 
@@ -146,3 +163,27 @@ app.post('/getButton', (req, res) => {
   }
 })
 
+app.post('/asignarReserva', async (req, res) => {
+
+  email = req.session.email
+  date = req.body.date
+  n_personas = req.body.n_personas
+
+  response = await MongoDB.newReserva(email, date, n_personas)
+
+  if(response){
+    return res.send('ok')
+  } else {
+    return res.send('error')
+  }
+
+})
+
+app.post('/getEventos', async (req, res) => {
+  try{
+    eventos = await MongoDB.fetch_all(req.body.coleccion)
+    res.send(eventos)
+  } catch (error){
+    console.log(error)
+  }
+})
