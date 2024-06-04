@@ -99,5 +99,32 @@ async function newUser(info){
 
 }
 
-module.exports = {fetch_all, fetchOne, getUserData, newUser
+async function newReserva(email, date, n_personas){
+    await MongoConnection.connect()
+    const collection = bd.collection('reservas')
+
+    try{
+
+        const data = {
+            "_id" : `${email}_${date}`,
+            "data" : {
+                "email" : email,
+                "fecha" : date,
+                "n_personas" : n_personas
+            }
+        }
+        
+        response = await collection.insertOne(data)
+        
+        return response
+    } catch (error){
+        console.log(error)
+    } finally {
+        await MongoConnection.close()
+    } 
+
+
+}
+
+module.exports = {fetch_all, fetchOne, getUserData, newUser, newReserva
                  }

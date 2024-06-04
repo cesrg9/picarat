@@ -7,7 +7,9 @@
     - Hacer un control de errores de la hostia mongodb y aquí
     - Implementar administradores y sus funciones
     - Hacer que la pagina del login sea o login o info del usuario (como listado_user)
-    - Todo el tema de las reservas sigue pendiente
+    - Por seguridad, ¿la contraseña va en la sesion?
+    - Validar entrada de datos
+    - Afinar el tema de las reservas, hacerlo más bonito
 */
 
 
@@ -89,19 +91,31 @@ app.route('/login')
   dbUserInfo = await MongoDB.getUserData(email,pssw)
 
   if(dbUserInfo.length == 0){
-
-    req.session.email = email
-    req.session.pssw = pssw
-
     return res.send('error')
   } else {
+    req.session.email = email
     return res.send('ok')
   }
 })
 
 app.route('/reservas')
-  .get((_req, res) => {
+  .get((req, res) => {
+
+    req.session.email = 'email'
+
+    if(!req.session.email){
+      return res.redirect('/login')
+    }
     return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
+}).post(async (req,res) =>{
+
+  try{
+    articulos = await MongoDB.fetch_all(req.body.coleccion)
+    res.send(articulos)
+  } catch (error){
+    console.log(error)
+  }
+
 })
 
 
@@ -119,3 +133,27 @@ app.post('/register', async (req, res) => {
 
 })
 
+app.post('/asignarReserva', async (req, res) => {
+
+  email = req.session.email
+  date = req.body.date
+  n_personas = req.body.n_personas
+
+  response = await MongoDB.newReserva(email, date, n_personas)
+
+  if(response){
+    return res.send('ok')
+  } else {
+    return res.send('error')
+  }
+
+})
+
+app.post('/getEventos', async (req, res) => {
+  try{
+    eventos = await MongoDB.fetch_all(req.body.coleccion)
+    res.send(eventos)
+  } catch (error){
+    console.log(error)
+  }
+})
