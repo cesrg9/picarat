@@ -5,9 +5,21 @@
     - Generate uuid en el session secret
     - Ver bien como va todo el tema del ok y error
     - Hacer un control de errores de la hostia mongodb y aquí
-    - Implementar administradores y sus funciones
     - Hacer que la pagina del login sea o login o info del usuario (como listado_user)
     - Todo el tema de las reservas sigue pendiente
+
+    04/06
+    - Modales para modificacion e inserción de datos (la eliminacion se puede hacer aprovechando la modificacion)
+    - Hacer los botones de eliminado y modificacion de colores diferentes (uno estará al lado del otro)
+    - Modal de carta: El value (lo de dentro) del textarea de la descripcion debe venir desde bd
+    - Un poco lo mismo para el resto
+    - Otro modal para las reservas
+    - Confirmacion de que esté logueado en login (que no deje hacer cosas si eso ya está)
+    - **OPT** Ver si se puede cambiar el /login en funcion de si ya está logado
+    - Hacer boton de logout
+    - Añadir que si no está disponible no se muetre
+    - ** SI DA TIEMPO ** Hazme los estilos bonicos anda
+
 */
 
 
@@ -36,9 +48,7 @@ app.listen(port, function () {
 
 app.route('/')
 .get((_req, res) => {
-
   return res.sendFile(path.join(__dirname, 'public', 'index.html'))
-
 }).post(async (req, res) => {
 
   try{
@@ -51,8 +61,13 @@ app.route('/')
 })
 
 app.route('/carta').get((_req, res) => {
-    return res.sendFile(path.join(__dirname, 'public', 'carta.html'))
+    
+  return res.sendFile(path.join(__dirname, 'public', 'carta.html'))
+
 }).post(async (req,res) => {
+
+  req.session.email = 'asd'
+  req.session.admin = true
 
   try{
     carta = await MongoDB.fetch_all(req.body.coleccion)
@@ -88,14 +103,17 @@ app.route('/login')
 
   dbUserInfo = await MongoDB.getUserData(email,pssw)
 
-  if(dbUserInfo.length == 0){
+  if(dbUserInfo.length == 1){
 
     req.session.email = email
-    req.session.pssw = pssw
 
-    return res.send('error')
-  } else {
+    if(dbUserInfo[0].data.admin){
+      req.session.admin = true
+    }
+
     return res.send('ok')
+  } else {
+    return res.send('error')
   }
 })
 
@@ -117,5 +135,14 @@ app.post('/register', async (req, res) => {
     return res.send('ok')
   }
 
+})
+
+app.post('/getButton', (req, res) => {
+  if(req.session.email && req.session.admin){
+
+    btn = `<button class="admin_btn">Modificar Información</button>`
+  
+    return res.send(btn)
+  }
 })
 

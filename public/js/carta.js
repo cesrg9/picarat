@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+   window.modal1.showModal()
 
    raw = {
       coleccion: 'carta'
@@ -11,9 +12,33 @@ document.addEventListener('DOMContentLoaded', () => {
       contentType: 'application/json',
       success: async (response) => {
          await cargarCarta(response)
+         await getButton()
       }
    })
+
+
 })
+
+$('.btn_close').click(() => {
+   window.modal1.close()
+})
+
+
+async function getButton(){
+
+   $.ajax({
+      url: '/getButton',
+      type: 'POST',
+      success: async (response) => {
+         if(response){
+            document.querySelector('.main').innerHTML += response
+            await $('.admin_btn').click(() =>{
+               window.modal1.showModal()
+            })
+         }
+      }
+   })
+}
 
 
 function cargarCarta(carta) {

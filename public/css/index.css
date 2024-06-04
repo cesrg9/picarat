@@ -107,26 +107,6 @@ html body {
     margin-bottom: 20px;
 }
 
-.modal1{
-    max-width: 50%;
-    border-radius: 8px;
-}
-
-.modal1[open] {
-    animation: fadeIn 0.25s forwards;
-  }
-  
-
-.modal1::backdrop{
-    background-color: rgb(0,0,0,0.5);
-}
-
-.btn_close{
-    background-color: black;
-    color: white;
-    border-radius: 8px;
-    width: fit-content;
-}
 
 @keyframes fadeIn {
     0% {
