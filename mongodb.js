@@ -132,15 +132,19 @@ async function findAndUpdate(data, coll){
     const collection = bd.collection(coll)
 
     try{
-
         const query = {
             'data.Titulo' : data.Titulo
         }
 
+        info = {}
+
+        for (key in data){
+            asd = `data.${key}`
+            info[asd] = data[key]
+        }
+
         const newData = {
-            $set : {
-                data
-            }
+            $set : info
         }
         
         console.log(newData)

@@ -7,10 +7,12 @@
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/articulos.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.10/dist/sweetalert2.all.min.js"></script>
     <title>Picarat Café</title>
 
 </head>
@@ -53,6 +55,43 @@
         </div>
     </div>
 
+    <dialog id="modal1" class="modal1"> <!-- Modal de modificacion y borrado -->
+        <h3 id="titulo_evento">Acciones para los artículos</h3>
+        <hr>
+        <div>
+            <p><b>Artículo: </b>
+                <select id="titulos_album">
+                    <option></option>
+                </select>
+            </p>
+            <p><b>Estado: </b><input type="text" id="estado2" placeholder="Estado del producto"></p>
+            <p><b>Descripción: </b><textarea id="descripcion2" placeholder="Introduce la descripcion"></textarea></p>
+            <p><b>Foto: </b><input type="url" id="url2" placeholder="Enlace de la portada"></p>
+        </div>
+        <hr>
+        <button class="btn_close">Cerrar</button>
+        <button class="btn_delete">Eliminar</button>
+        <button class="btn_modify">Modificar</button>
+        <span class="error" id="error">Debes introducir todos los parámetros</span>
+    </dialog>
+
+    <dialog id="modal2" class="modal2 modal1"> <!-- Modal de añadido -->
+        <h3 id="titulo_evento">Acciones para los artículos</h3>
+        <hr>
+        <div>
+            <p><b>Artículo: </b>
+                <input type="text" id="nombre" placeholder="Nombre del nuevo articulo">
+            </p>
+            <p><b>Artista: </b><input type="text" id="artista" placeholder="Introduce el artista"></p>
+            <p><b>Salida: </b><input type="text" id="date" placeholder="Año de lanzamiento"></p>
+            <p><b>Estado: </b><input type="text" id="estado" placeholder="Estado del producto"></p>
+            <p><b>Foto: </b><input type="url" id="url" placeholder="Enlace de la portada"></p>
+            <p><b>Descripción: </b><textarea id="descripcion" placeholder="Introduce la descripcion"></textarea></p>
+        </div>
+        <hr>
+        <button class="btn_close">Cerrar</button>
+        <button class="btn_confirm">Confirmar</button>
+    </dialog>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

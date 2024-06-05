@@ -9,21 +9,23 @@
     - Todo el tema de las reservas sigue pendiente
 
     04/06
-    - Modales para modificacion e inserción de datos (la eliminacion se puede hacer aprovechando la modificacion)
-    - Hacer los botones de eliminado y modificacion de colores diferentes (uno estará al lado del otro)
-    - Modal de carta: El value (lo de dentro) del textarea de la descripcion debe venir desde bd
-    - Un poco lo mismo para el resto
-    - Otro modal para las reservas
+    - Toda la confirmacion de reservas (pendiente)
     - Confirmacion de que esté logueado en login (que no deje hacer cosas si eso ya está)
     - **OPT** Ver si se puede cambiar el /login en funcion de si ya está logado
     - Hacer boton de logout
-    - Añadir que si no está disponible no se muetre
     - ** SI DA TIEMPO ** Hazme los estilos bonicos anda
     - Cambiar los estilos del textarea
 
-    - Por seguridad, ¿la contraseña va en la sesion?
-    - Validar entrada de datos
+
+    05/06
+    - Revisar todos los textos (errores, sandeces, loremipsums, etc)
+    - Añadir más datos para que al hacer las pruebas no se vea que la altura no está configurada
+    - Filtrado de reservas en funcion de la sesion y del estado de las propias reservas
+    - Segun parece ya hay algo hecho de reservas, ver qué y si sigue funcionando
+
+    - Validar las entradas de datos
     - Afinar el tema de las reservas, hacerlo más bonito
+
 */
 
 
@@ -80,7 +82,11 @@ app.route('/carta').get((_req, res) => {
 })
 
 app.route('/articulos')
-.get((_req, res) => {
+.get((req, res) => {
+
+  req.session.email = 'asd'
+  req.session.admin = true
+
   return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
 }).post(async (req,res) => {  
 

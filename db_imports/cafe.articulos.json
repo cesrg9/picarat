@@ -1,0 +1,52 @@
+[{
+  "_id": {
+    "$oid": "665ce0fab1de030d6c8812a5"
+  },
+  "data": {
+    "Titulo": "Discovery",
+    "Artista": "Daft Punk",
+    "Release": "2001",
+    "Estado": "Nuevo",
+    "Foto": "https://i.scdn.co/image/ab67616d0000b27348905438b9c1153978d9fbf4",
+    "Descripcion": "Discovery es el segundo álbum de estudio del dúo francés de música house Daft Punk, lanzado en marzo de 2001. Marcó un cambio en el sonido desde el Chicago house, género por el que eran conocidos, al disco, post-disco y house inspirado en el synthpop."
+  }
+},
+{
+  "_id": {
+    "$oid": "665ce3e2b1de030d6c8812a7"
+  },
+  "data": {
+    "Titulo": "In the Heat of the Night",
+    "Artista": "Imagination",
+    "Release": "1982",
+    "Estado": "Usado",
+    "Foto": "https://i.scdn.co/image/ab67616d0000b27323e3de02327a72bcf7a1c5d3",
+    "Descripcion": "'In the Heat of the Night' es el segundo álbum de estudio del grupo británico de música soul y funk Imagination, lanzado en septiembre de 1982. Este álbum consolidó el estilo distintivo del grupo, fusionando elementos de soul, funk y R&B con influencias del disco, lo que resultó en un sonido sensual y sofisticado. El álbum incluye éxitos como 'Just an Illusion' y 'Music and Lights', y es reconocido por su producción pulida y sus melodías pegajosas que capturan la esencia del sonido de los años 80."
+  }
+},
+{
+  "_id": {
+    "$oid": "665ce912b1de030d6c8812a9"
+  },
+  "data": {
+    "Titulo": "Hotel California",
+    "Artista": "Eagles",
+    "Release": "1976",
+    "Estado": "Con poco uso",
+    "Foto": "https://i.scdn.co/image/ab67616d0000b2734637341b9f507521afa9a778",
+    "Descripcion": "'Hotel California' es el quinto álbum de la banda estadounidense Eagles, lanzado en diciembre de 1976. Con una mezcla de rock y country, el álbum aborda temas de decadencia y exceso en la vida californiana. Incluye los éxitos 'Hotel California', 'New Kid in Town' y 'Life in the Fast Lane', y es reconocido por su producción meticulosa y armonías vocales distintivas."
+  }
+},
+{
+  "_id": {
+    "$oid": "66608d5309106bd8cb293ba4"
+  },
+  "data": {
+    "Titulo": "The Car",
+    "Estado": "Como Nuevo",
+    "Foto": "https://i.scdn.co/image/ab67616d0000b27307823ee6237208c835802663",
+    "Descripcion": "'The Car' es el séptimo álbum de Arctic Monkeys, lanzado en octubre de 2022. Presenta un sonido más sofisticado, con influencias de rock orquestal y baroque pop. Las letras introspectivas abordan temas de amor y nostalgia, destacándose por su producción detallada y el uso de cuerdas y elementos sinfónicos. ",
+    "Artista": "Arctic Monkeys",
+    "Release": "2022"
+  }
+}]

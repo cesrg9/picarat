@@ -61,18 +61,27 @@ $('.btn_modify').click(async () => {
    nombre = document.getElementById('nombres_carta').value
    precio = document.getElementById('precio').value
    descripcion = document.getElementById('descripcion_carta').value
-   disponible = Boolean(document.getElementById('disponible').value)
+   disponible = (document.getElementById('disponible').value === "true")
 
-   raw = {
-      coll : 'carta',
-      data : {
-         Titulo : nombre,
-         Precio : precio,
-         Descripcion : descripcion,
-         Disponibilidad : disponible
+   info = {
+      Titulo : nombre,
+      Precio : precio,
+      Descripcion : descripcion,
+      Disponibilidad : disponible
+   }
+
+   console.log(disponible)
+
+   for (key in info){
+      if(info[key] === "" || info[key] === undefined){
+         delete info[key]
       }
    }
 
+   raw = {
+      coll : 'carta',
+      data : info
+   }
    $.ajax({
       url: '/modifyElement',
       type: 'POST',
@@ -97,7 +106,7 @@ $('.btn_confirm').click(async () => {
    nombre = document.getElementById('nombre').value
    precio = document.getElementById('precio2').value
    descripcion = document.getElementById('descripcion_carta2').value
-   disponible = Boolean(document.getElementById('disponible2').value)
+   disponible = (document.getElementById('disponible2').value === "true")
 
    raw = {
       coll : 'carta',
@@ -153,11 +162,19 @@ function cargarCarta(carta) {
    const main = document.querySelector('.main');
    divElemento = ''
 
-   console.log(carta)
+   cartaFiltrada = [];
 
-   for (let i = 0; i < carta.length; i += 3) {
+   carta.forEach(key => {
+      if (key.data.Disponibilidad) {
+         cartaFiltrada.push(key);
+      }
+  });
+   console.log(cartaFiltrada)
 
-      const row = carta.slice(i, i + 3);
+
+   for (let i = 0; i < cartaFiltrada.length; i += 3) {
+
+      const row = cartaFiltrada.slice(i, i + 3);
       let divElemento = ''
       let divPadre = ''
 

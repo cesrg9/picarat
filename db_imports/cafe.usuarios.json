@@ -1,0 +1,56 @@
+[{
+  "_id": {
+    "$oid": "665d0ecb22c2cb6e51d8e707"
+  },
+  "data": {
+    "email": "email",
+    "pssw": "asd",
+    "nombre": "nombre",
+    "tlf": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "665d0ed7994c794cb2de9424"
+  },
+  "data": {
+    "email": "email5",
+    "pssw": "asd",
+    "nombre": "nombre",
+    "tlf": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "665d0fb69e7c37cff5fdc81e"
+  },
+  "data": {
+    "email": "email1",
+    "pssw": "asd",
+    "nombre": "nombre",
+    "tlf": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "665d10dc8321918deea6fa21"
+  },
+  "data": {
+    "email": "email3",
+    "pssw": "asd",
+    "nombre": "nombre",
+    "tlf": "1"
+  }
+},
+{
+  "_id": {
+    "$oid": "6660764e48a13d8c88c8e4af"
+  },
+  "data": {
+    "email": "asd",
+    "pssw": "asd",
+    "nombre": "asd",
+    "tlf": "a",
+    "admin": true
+  }
+}]

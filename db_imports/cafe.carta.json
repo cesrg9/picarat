@@ -1,48 +1,11 @@
 [{
   "_id": {
-    "$oid": "665746882ff90a73e1a320e4"
-  },
-  "data": {
-    "data": {
-      "nombre": "John Lemon",
-      "precio": "5",
-      "descripcion": "Té de Limón con notas de canela acompañado por unas pastas exquisitas pastas artesanales de té verde",
-      "disponible": true
-    }
-  }
-},
-{
-  "_id": {
-    "$oid": "665746b42ff90a73e1a320e6"
-  },
-  "data": {
-    "data": {
-      "nombre": "Air, Soil and Water",
-      "precio": "5",
-      "descripcion": "Tabla de tartaletas de crema de chocolate, limón y pistacho <br> Opción sin gluten",
-      "disponible": true
-    }
-  }
-},
-{
-  "_id": {
-    "$oid": "6658b654e3c33e092c2fd0ee"
-  },
-  "data": {
-    "Titulo": "Coolio",
-    "Descripcion": "Granizado de café con leche coronado por galletas de barquillo",
-    "Precio": "3.50",
-    "Disponibilidad": true
-  }
-},
-{
-  "_id": {
     "$oid": "6658c365e3c33e092c2fd0f5"
   },
   "data": {
     "Titulo": "Sinatra",
-    "Descripcion": "Cóctail hecho a base de zumo de piña, menta, granadina y extracto de fruta de la pasión",
-    "Precio": "6.00",
+    "Precio": "20",
+    "Descripcion": " Cóctail hecho a base de zumo de piña, menta, granadina y extracto de fruta de la pasión ",
     "Disponibilidad": true
   }
 },
@@ -74,8 +37,52 @@
   },
   "data": {
     "Titulo": "Café con leche",
-    "Descripcion": "Café con leche normal y corriente, con opción para llevar <br> Se puede servir con leche vegetal",
-    "Precio": "1.20",
+    "Descripcion": "Café con leche simple\nCon opción para llevar",
+    "Precio": "1",
+    "Disponibilidad": true
+  }
+},
+{
+  "_id": {
+    "$oid": "665746b42ff90a73e1a320e6"
+  },
+  "data": {
+    "Descripcion": "Tabla de tartaletas de crema de chocolate, limón y pistacho <br> Opción sin gluten",
+    "Disponibilidad": true,
+    "Precio": "5",
+    "Titulo": "Air, Soil and Water"
+  }
+},
+{
+  "_id": {
+    "$oid": "66607aaa39622c854c93c223"
+  },
+  "data": {
+    "Descripcion": "Té de Limón con notas de canela acompañado por unas pastas exquisitas pastas artesanales de té verde",
+    "Disponibilidad": true,
+    "Precio": "5",
+    "Titulo": "John Lemon"
+  }
+},
+{
+  "_id": {
+    "$oid": "6658b654e3c33e092c2fd0ee"
+  },
+  "data": {
+    "Titulo": "Coolio",
+    "Descripcion": "Granizado de café con leche coronado por galletas de barquillo",
+    "Precio": "3.50",
+    "Disponibilidad": true
+  }
+},
+{
+  "_id": {
+    "$oid": "66608395d2247307f3bdb42a"
+  },
+  "data": {
+    "Titulo": "Tarta de Lotus",
+    "Precio": "4",
+    "Descripcion": "Mondogno de lotus",
     "Disponibilidad": true
   }
 }]

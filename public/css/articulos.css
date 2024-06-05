@@ -86,3 +86,11 @@ html body {
     padding-top: 2.5%;
     padding-left: 2.5%;
 }
+
+.error{
+    margin-left: 10%;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: rgb(248, 0, 0);
+    display:none;
+}
