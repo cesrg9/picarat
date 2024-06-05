@@ -28,6 +28,14 @@
     width: fit-content;
 }
 .btn_confirm{
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    height: 30px;
+    width: fit-content;
+}
+.btn_modify{
     background-color: blue;
     color: white;
     border: none;

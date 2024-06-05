@@ -48,7 +48,7 @@ async function fetchOne(id, coleccion){
     }
 
     await MongoConnection.close()
-    return results
+    return results[0].data
 
 }
 
@@ -126,5 +126,75 @@ async function newReserva(email, date, n_personas){
 
 }
 
-module.exports = {fetch_all, fetchOne, getUserData, newUser, newReserva
+async function findAndUpdate(data, coll){
+
+    await MongoConnection.connect()
+    const collection = bd.collection(coll)
+
+    try{
+
+        const query = {
+            'data.Titulo' : data.Titulo
+        }
+
+        const newData = {
+            $set : {
+                data
+            }
+        }
+        
+        console.log(newData)
+
+        response = await collection.updateOne(query, newData)
+        
+        return response
+    } catch (error){
+        console.log(error)
+    } finally {
+        await MongoConnection.close()
+    } 
+
+}
+
+async function addOne(data, coll){
+
+    await MongoConnection.connect()
+    const collection = bd.collection(coll)
+    try{
+
+        const info = {
+            data
+        }
+
+        response = await collection.insertOne(info)
+        
+        return response
+    } catch (error){
+        console.log(error)
+    } finally {
+        await MongoConnection.close()
+    } 
+
+}
+
+async function deleteOne(data, coll){
+    await MongoConnection.connect()
+    const collection = bd.collection(coll)
+
+    try{
+
+        const query = { 'data.Titulo' : data.Titulo };
+
+        const response = await collection.deleteOne(query);
+        
+        return response
+    } catch (error){
+        console.log(error)
+    } finally {
+        await MongoConnection.close()
+    } 
+}
+
+module.exports = {fetch_all, fetchOne, getUserData, newUser, newReserva, findAndUpdate,
+                  deleteOne, addOne
                  }

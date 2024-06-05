@@ -69,7 +69,7 @@ function cargarEventos(){
         coleccion: 'eventos'
     }
     $.ajax({
-        url: '/getEventos',
+        url: '/getInfo',
         type: 'POST',
         data: JSON.stringify(raw),
         contentType: 'application/json',

@@ -64,6 +64,8 @@ function showInfoEvento(id){
         'id' : id
     }
 
+    console.log(id)
+
     $.ajax({
         url: '/getInfoEvento',
         type: 'POST',
@@ -78,7 +80,20 @@ function showInfoEvento(id){
 
         }
     })
-    
+
+    window.modal1.innerHTML = ` <!-- Modal de info de eventos-->
+    <h3 id="titulo_evento">Título del evento</h3>
+    <hr>
+    <p><b>Fecha: </b><span id="fecha_evento">dd/mm/aaaa</span></p>
+    <p><b>Organizador: </b><span id="organizador_evento">Nombre / Empresa</span></p>
+    <p><b>Descripción: </b><span id="descripcion_evento">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla
+        voluptate consequatur
+        nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
+        ipsam pariatur?</span></p>
+    <hr>
+    <button class="btn_close">Cerrar</button>
+  `
+    funcionalidadBotones()
     window.modal1.showModal()
 
 }

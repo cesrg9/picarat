@@ -62,24 +62,42 @@
         <hr>
         <div>
             <p><b>Artículo: </b>
-            <select id="reserva_evento"> <!-- CARGA DE LOS ELEMENTOS RECIBIDOS -->
-            </select></p>
-            <p><b>Precio: </b><input type="number" id="comensales_reserva" placeholder="Introduce un numero"></p>
-            <p><b>Descripción: </b><textarea id="descripcion_evento">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi sit totam nisi nulla
-                voluptate consequatur
-                nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
-                ipsam pariatur?</textarea></p>
+                <select id="nombres_carta">
+                    <option></option>
+                </select>
+            </p>
+            <p><b>Precio: </b><input type="number" id="precio" placeholder="Introduce un numero"></p>
+            <p><b>Descripción: </b><textarea id="descripcion_carta" placeholder="Introduce la nueva descripcion"></textarea></p>
             <p><b>Disponible: </b>
-                <select id="reserva_evento"> <!-- CARGA DE LOS ELEMENTOS RECIBIDOS -->
-                    <option>Si</option>
-                    <option>No</option>
+                <select id="disponible"> <!-- CARGA DE LOS ELEMENTOS RECIBIDOS -->
+                    <option value=true>Si</option>
+                    <option value=false>No</option>
                 </select></p>
         </div>
         <hr>
         <button class="btn_close">Cerrar</button>
         <button class="btn_delete">Eliminar</button>
-        <button class="btn_confirm">Modificar</button>
-      </dialog>
+        <button class="btn_modify">Modificar</button>
+    </dialog>
+    <dialog id="modal2" class="modal2 modal1"> <!-- Modal de info de eventos-->
+        <h3 id="titulo_evento">Acciones para la carta</h3>
+        <hr>
+        <div>
+            <p><b>Artículo: </b>
+                <input type="text" id="nombre" placeholder="Nombre del nuevo producto">
+            </p>
+            <p><b>Precio: </b><input type="number" id="precio2" placeholder="Introduce un numero"></p>
+            <p><b>Descripción: </b><textarea id="descripcion_carta2" placeholder="Introduce la nueva descripcion"></textarea></p>
+            <p><b>Disponible: </b>
+                <select id="disponible2"> <!-- CARGA DE LOS ELEMENTOS RECIBIDOS -->
+                    <option value=true>Si</option>
+                    <option value=false>No</option>
+                </select></p>
+        </div>
+        <hr>
+        <button class="btn_close">Cerrar</button>
+        <button class="btn_confirm">Confirmar</button>
+    </dialog>
 </body>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

@@ -19,6 +19,7 @@
     - Hacer boton de logout
     - Añadir que si no está disponible no se muetre
     - ** SI DA TIEMPO ** Hazme los estilos bonicos anda
+    - Cambiar los estilos del textarea
 
     - Por seguridad, ¿la contraseña va en la sesion?
     - Validar entrada de datos
@@ -68,9 +69,6 @@ app.route('/carta').get((_req, res) => {
   return res.sendFile(path.join(__dirname, 'public', 'carta.html'))
 
 }).post(async (req,res) => {
-
-  req.session.email = 'asd'
-  req.session.admin = true
 
   try{
     carta = await MongoDB.fetch_all(req.body.coleccion)
@@ -122,8 +120,6 @@ app.route('/login')
 app.route('/reservas')
   .get((req, res) => {
 
-    req.session.email = 'email'
-
     if(!req.session.email){
       return res.redirect('/login')
     }
@@ -157,7 +153,7 @@ app.post('/register', async (req, res) => {
 app.post('/getButton', (req, res) => {
   if(req.session.email && req.session.admin){
 
-    btn = `<button class="admin_btn">Modificar Información</button>`
+    btn = `<button class="admin_btn">Modificar Información</button> <button class="admin_btn2">Añadir más Información</button>`
   
     return res.send(btn)
   }
@@ -179,11 +175,66 @@ app.post('/asignarReserva', async (req, res) => {
 
 })
 
-app.post('/getEventos', async (req, res) => {
+app.post('/getInfo', async (req, res) => {
   try{
     eventos = await MongoDB.fetch_all(req.body.coleccion)
     res.send(eventos)
   } catch (error){
     console.log(error)
+  }
+})
+
+app.post('/getInfoEvento', async (req, res) => {
+
+  try{
+    id = req.body.id
+    coleccion = 'eventos'
+
+    evento = await MongoDB.fetchOne(id, coleccion)
+    return res.send(evento)
+
+  } catch (error){
+    console.log(error)
+  }
+
+
+})
+
+app.post('/modifyElement', async (req, res) => {
+
+  data = req.body.data
+  coll = req.body.coll
+
+  response = await MongoDB.findAndUpdate(data, coll)
+  if(!response.acknowledged){
+    return res.send('error')
+  } else {
+    return res.send('ok')
+  }
+})
+
+app.post('/addElement', async (req, res) => {
+
+  data = req.body.data
+  coll = req.body.coll
+
+  response = await MongoDB.addOne(data, coll)
+  if(!response.acknowledged){
+    return res.send('error')
+  } else {
+    return res.send('ok')
+  }
+})
+
+app.post('/deleteElement', async (req, res) => {
+  
+  data = req.body.data
+  coll = req.body.coll
+
+  response = await MongoDB.deleteOne(data, coll)
+  if(response.deletedCount !== 1){
+    return res.send('error')
+  } else {
+    return res.send('ok')
   }
 })
