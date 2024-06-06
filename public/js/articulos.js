@@ -3,17 +3,25 @@ document.addEventListener('DOMContentLoaded', () => {
    raw = {
       coleccion: 'articulos'
    }
-
    $.ajax({
       url: '/articulos',
       type: 'POST',
       data: JSON.stringify(raw),
       contentType: 'application/json',
-   }).done(async (response) => {
-      await cargarArticulos(response.articulos);
-      await getButton();
-      await cargarInfoModal();
-   }) 
+      success: async (response) => {
+         await cargarArticulos(response.articulos);
+         await getButton();
+         await cargarInfoModal();
+      },
+      error: (xhr) => {
+         Swal.fire({
+            title: "Oh oh...",
+            text: "Parece que estamos teniendo problemas para cargar la información de esta página",
+            icon: "error"
+        });  
+      }
+   })
+
 })
 
 $('.btn_close').click(() => {

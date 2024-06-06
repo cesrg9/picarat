@@ -1,7 +1,5 @@
 /* 
   TODO:
-    - Securizar todo el tema del login (contraseñas)
-    - Generate uuid en el session secret
     - Hacer un control de errores de la hostia mongodb y aquí
 
     04/06
@@ -12,23 +10,27 @@
     05/06
     - Revisar todos los textos (errores, sandeces, loremipsums, etc)
     - Añadir más datos para que al hacer las pruebas no se vea que la altura no está configurada
-    - Filtrado de reservas en funcion de la sesion y del estado de las propias reservas
 
     06/06
     - Estudiar todas las cauisticas
     - Cambiar los ajax a la estructura de reservas
     - Mensajes dependiendo del estado que se devuelva
     - Comprobar cuando debe ser admin y cuando user
-
     - Validar las entradas de datos
+
+    07/06 00:43
+
+    - Para la dockerizacion hay que mirar lo de las versiones, para más detalle, hablar con crystal
+
 
     - Especificar el uso de chatGPT para el bcrypt, que se ha buscado una manera de codificar las contraseñas, que se ha complementado la info básica con la documentacion y que lo he adaptado al  proyecto
     - Explicar un poco el funcionamiento de bcrypt
+    - Explicar el uso de crypto y que ha salido de stackoverflow
 */
 
 
 const session = require('express-session');
-const bcrypt = require('bcrypt');
+const crypto = require("crypto");
 const express = require('express');
 const MongoDB = require('./mongodb')
 const path = require('path');
@@ -43,7 +45,7 @@ app.use(express.json())
 app.use(express.static(path.join(__dirname, 'public')))
 
 app.use(session({
-  secret: 'mi-secreto',
+  secret: crypto.randomBytes(16).toString("hex"),
   resave: false,
   saveUninitialized: true,
   cookie: { secure: false }
@@ -82,29 +84,21 @@ app.route('/carta').get((_req, res) => {
 
 })
 
-app.route('/articulos')
-  .get((req, res) => {
-    return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
-  }).post(async (req, res) => {
-    try {
-
-      articulos = await MongoDB.fetch_all(req.body.coleccion)
-      return res.status(200).json({ articulos: articulos })
-    } catch (error) {
-
-      console.log(error)
-    }
-
-  })
+app.route('/articulos').get((req, res) => {
+  return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
+}).post(async (req, res) => {
+  try {
+    articulos = await MongoDB.fetch_all(req.body.coleccion)
+    return res.status(200).json({ articulos: articulos })
+  } catch (error) {
+    return res.status(500).send(error)
+  }
+})
 
 
-app.route('/login')
-  .get((req, res) => {
-
+app.route('/login').get((req, res) => {
     return res.sendFile(path.join(__dirname, 'public', 'login.html'))
-
-
-  }).post(async (req, res) => {
+}).post(async (req, res) => {
     email = req.body.email
     pssw = req.body.pssw
 
@@ -124,49 +118,38 @@ app.route('/login')
     }
   })
 
-app.route('/reservas')
-  .get((req, res) => {
-
-    req.session.email = 'email'
-    req.session.admin = true
-
+app.route('/reservas').get((req, res) => {
     if (!req.session.email) {
       return res.redirect('/login')
+    } else {
+      return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
     }
-    return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
-  }).post(async (req, res) => {
+}).post(async (req, res) => {
 
-    try {
+  try {
 
-      if (!req.session.admin) {
-        query = { 'data.email': req.session.email }
-      } else {
-        query = { 'data.estado': 'pendiente' }
-      }
-
-      reservas = await MongoDB.fetchWithQuery(query, req.body.coleccion)
-
-      return res.status(200).json({ bool: req.session.admin, reservas: reservas }) //// FIJARSE EN ESTO REFERENCIA
-
-
-    } catch (error) {
-      console.log(error)
+    if (!req.session.admin) {
+      query = { 'data.email': req.session.email }
+    } else {
+      query = { 'data.estado': 'pendiente' }
     }
 
-  })
+    reservas = await MongoDB.fetchWithQuery(query, req.body.coleccion)
+
+    return res.status(200).json({ bool: req.session.admin, reservas: reservas }) //// FIJARSE EN ESTO REFERENCIA
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
+})
 
 
 app.post('/register', async (req, res) => {
 
   let info = req.body
 
-  const saltRounds = 5;
-
-  unsecure_psswd = info.pssw
-
-  hash = await bcrypt.hash(unsecure_psswd, saltRounds)
-
-  info.pssw = hash
 
   response = await MongoDB.newUser(info)
 

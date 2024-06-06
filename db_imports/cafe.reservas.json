@@ -1,8 +1,9 @@
 [{
-  "_id": "email_2024-06-07",
+  "_id": "asd_2024-06-06",
   "data": {
-    "email": "email",
-    "fecha": "2024-06-07",
-    "n_personas": "23"
+    "email": "asd",
+    "fecha": "2024-06-06",
+    "n_personas": "2",
+    "estado": "Denegada"
   }
 }]

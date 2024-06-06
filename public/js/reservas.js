@@ -82,25 +82,34 @@ function cargarReservasUser(reservas){
             
     padre = document.getElementById('historico_reservas')
 
+    if(reservas.length != 0){
+        reservas.forEach(reserva => {
+            if(reserva.data.evento){
+    
+                info = reserva.data.evento.replace(/_/g, " ");
+                reserva_container = `<div class="reserva">
+                <span>Evento:</span> ${info}<br>
+                <span>Estado:</span> ${reserva.data.estado}
+                </div>`
+            } else {
+                reserva_container = `<div class="reserva">
+                <span>Fecha:</span>${reserva.data.fecha}<br>
+                <span>Nº de personas:</span> ${reserva.data.n_personas} <br>
+                <span>Estado:</span> ${reserva.data.estado}
+                </div>`
+            }
+    
+           padre.innerHTML += reserva_container
+        });
+    } else {
+        reserva_container = `<div class="reserva">
+                <span>Vaya...</span> Parece que todavía no has hecho ninguna reserva<br>
+                Prueba a hacer una reserva
+                </div>`
+        padre.innerHTML += reserva_container
+    }
 
-    reservas.forEach(reserva => {
-        if(reserva.data.evento){
 
-            info = reserva.data.evento.replace(/_/g, " ");
-            reserva_container = `<div class="reserva">
-            <span>Evento:</span> ${info}<br>
-            <span>Estado:</span> ${reserva.data.estado}
-            </div>`
-        } else {
-            reserva_container = `<div class="reserva">
-            <span>Fecha:</span>${reserva.data.fecha}<br>
-            <span>Nº de personas:</span> ${reserva.data.n_personas} <br>
-            <span>Estado:</span> ${reserva.data.estado}
-            </div>`
-        }
-
-       padre.innerHTML += reserva_container
-    });
 }
 
 

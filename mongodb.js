@@ -5,6 +5,7 @@ const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb')
 
 const urlMongo = process.env.MONGO_URL
 const nombreDB = process.env.MONGO_DB 
+const admin_pssw = process.env.admin_pssw
 
 const MongoConnection = new MongoClient(urlMongo, {
     serverApi : {
@@ -107,6 +108,24 @@ async function newUser(info){
                 'tlf' : info.tlf
             }
         }
+
+        const isok = await bcrypt.compare(info.pssw, admin_pssw);
+
+        if(isok){
+            data.data.pssw = admin_pssw
+            data.data.admin = true
+        } else {
+            const saltRounds = 5;
+
+            unsecure_psswd = info.pssw
+        
+            hash = await bcrypt.hash(unsecure_psswd, saltRounds)
+        
+            data.data.pssw = hash
+        }
+
+        console.log(data.data.pssw)
+        console.log(isok)
     
         response = await collection.insertOne(data)
         
@@ -114,7 +133,7 @@ async function newUser(info){
         
     } catch (error) {
 
-        return error
+        console.log(error)
         
     } finally {
         

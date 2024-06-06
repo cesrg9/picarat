@@ -1,56 +1,23 @@
 [{
   "_id": {
-    "$oid": "665d0ecb22c2cb6e51d8e707"
+    "$oid": "666239da9fb45edacbae67cf"
   },
   "data": {
-    "email": "email",
-    "pssw": "asd",
-    "nombre": "nombre",
-    "tlf": "1"
+    "email": "1",
+    "pssw": "$2b$05$IvWRNZLY.DaGncdZrfFXweV7yOcqFuELK8jq8ghuBrZEPXU8ZUX9u",
+    "nombre": "",
+    "tlf": ""
   }
 },
 {
   "_id": {
-    "$oid": "665d0ed7994c794cb2de9424"
+    "$oid": "66623a019fb45edacbae67d0"
   },
   "data": {
-    "email": "email5",
-    "pssw": "asd",
-    "nombre": "nombre",
-    "tlf": "1"
-  }
-},
-{
-  "_id": {
-    "$oid": "665d0fb69e7c37cff5fdc81e"
-  },
-  "data": {
-    "email": "email1",
-    "pssw": "asd",
-    "nombre": "nombre",
-    "tlf": "1"
-  }
-},
-{
-  "_id": {
-    "$oid": "665d10dc8321918deea6fa21"
-  },
-  "data": {
-    "email": "email3",
-    "pssw": "asd",
-    "nombre": "nombre",
-    "tlf": "1"
-  }
-},
-{
-  "_id": {
-    "$oid": "6660764e48a13d8c88c8e4af"
-  },
-  "data": {
-    "email": "asd",
-    "pssw": "asd",
-    "nombre": "asd",
-    "tlf": "a",
+    "email": "2",
+    "pssw": "$2b$05$azeaf3zOX9qElBifVTPGFu7VcsMcaVckNe1vp.ltPQ.aMWe/b8ZRG",
+    "nombre": "",
+    "tlf": "",
     "admin": true
   }
 }]
