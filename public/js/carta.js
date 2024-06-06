@@ -70,8 +70,6 @@ $('.btn_modify').click(async () => {
       Disponibilidad : disponible
    }
 
-   console.log(disponible)
-
    for (key in info){
       if(info[key] === "" || info[key] === undefined){
          delete info[key]
@@ -80,7 +78,8 @@ $('.btn_modify').click(async () => {
 
    raw = {
       coll : 'carta',
-      data : info
+      data : info,
+      query: { "data.Titulo" : nombre }
    }
    $.ajax({
       url: '/modifyElement',
@@ -169,8 +168,6 @@ function cargarCarta(carta) {
          cartaFiltrada.push(key);
       }
   });
-   console.log(cartaFiltrada)
-
 
    for (let i = 0; i < cartaFiltrada.length; i += 3) {
 

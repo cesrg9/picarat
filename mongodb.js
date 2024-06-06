@@ -33,6 +33,22 @@ async function fetch_all(coleccion){
 
 }
 
+async function fetchWithQuery(query, coleccion){
+    await MongoConnection.connect()
+    const collection = bd.collection(coleccion)
+
+    const result = collection.find(query)
+    let results = []
+
+    
+    for await (const doc of result) {
+        results.push(doc)
+    }
+    
+    await MongoConnection.close()
+    return results
+}
+
 async function fetchOne(id, coleccion){
 
     await MongoConnection.connect()
@@ -99,7 +115,7 @@ async function newUser(info){
 
 }
 
-async function newReserva(email, date, n_personas){
+async function newReserva(email, date, n_personas, estado){
     await MongoConnection.connect()
     const collection = bd.collection('reservas')
 
@@ -110,7 +126,8 @@ async function newReserva(email, date, n_personas){
             "data" : {
                 "email" : email,
                 "fecha" : date,
-                "n_personas" : n_personas
+                "n_personas" : n_personas,
+                "estado" : estado
             }
         }
         
@@ -123,19 +140,41 @@ async function newReserva(email, date, n_personas){
         await MongoConnection.close()
     } 
 
-
 }
 
-async function findAndUpdate(data, coll){
+async function reservaEvento(email, evento, estado){
+    await MongoConnection.connect()
+    const collection = bd.collection('reservas')
+
+    try{
+
+        evento = evento.replace(/ /g, "_")
+
+        const data = {
+            "_id" : `${email}_${evento}`,
+            "data" : {
+                "email" : email,
+                "evento" : evento,
+                "estado" : estado
+            }
+        }
+        
+        response = await collection.insertOne(data)
+        
+        return response
+    } catch (error){
+        console.log(error)
+    } finally {
+        await MongoConnection.close()
+    } 
+}
+
+async function findAndUpdate(data, query, coll){
 
     await MongoConnection.connect()
     const collection = bd.collection(coll)
 
     try{
-        const query = {
-            'data.Titulo' : data.Titulo
-        }
-
         info = {}
 
         for (key in data){
@@ -146,9 +185,10 @@ async function findAndUpdate(data, coll){
         const newData = {
             $set : info
         }
-        
-        console.log(newData)
 
+        console.log(query)
+        console.log(newData)
+        
         response = await collection.updateOne(query, newData)
         
         return response
@@ -199,6 +239,6 @@ async function deleteOne(data, coll){
     } 
 }
 
-module.exports = {fetch_all, fetchOne, getUserData, newUser, newReserva, findAndUpdate,
-                  deleteOne, addOne
+module.exports = {fetch_all, fetchOne, getUserData, newUser, newReserva, reservaEvento, findAndUpdate,
+                  deleteOne, addOne, fetchWithQuery
                  }

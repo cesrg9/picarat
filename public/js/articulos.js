@@ -114,10 +114,9 @@ $('.btn_modify').click(async () => {
 
    let raw = {
       coll: 'articulos',
-      data: info
+      data: info,
+      query: {"data.Titulo" : nombre }
    };
-
-   console.log(raw)
    
    $.ajax({
       url: '/modifyElement',

@@ -1,30 +1,26 @@
 /* 
   TODO:
     - Securizar todo el tema del login (contraseñas)
-    - Profundizar un poco más en lo de las sessiones
     - Generate uuid en el session secret
-    - Ver bien como va todo el tema del ok y error
     - Hacer un control de errores de la hostia mongodb y aquí
-    - Hacer que la pagina del login sea o login o info del usuario (como listado_user)
-    - Todo el tema de las reservas sigue pendiente
 
     04/06
-    - Toda la confirmacion de reservas (pendiente)
-    - Confirmacion de que esté logueado en login (que no deje hacer cosas si eso ya está)
     - **OPT** Ver si se puede cambiar el /login en funcion de si ya está logado
-    - Hacer boton de logout
     - ** SI DA TIEMPO ** Hazme los estilos bonicos anda
     - Cambiar los estilos del textarea
-
 
     05/06
     - Revisar todos los textos (errores, sandeces, loremipsums, etc)
     - Añadir más datos para que al hacer las pruebas no se vea que la altura no está configurada
     - Filtrado de reservas en funcion de la sesion y del estado de las propias reservas
-    - Segun parece ya hay algo hecho de reservas, ver qué y si sigue funcionando
+
+    06/06
+    - Estudiar todas las cauisticas
+    - Cambiar los ajax a la estructura de reservas
+    - Mensajes dependiendo del estado que se devuelva
+    - Comprobar cuando debe ser admin y cuando user
 
     - Validar las entradas de datos
-    - Afinar el tema de las reservas, hacerlo más bonito
 
 */
 
@@ -33,6 +29,7 @@ const session = require('express-session');
 const express = require('express');
 const MongoDB = require('./mongodb')
 const path = require('path');
+const { eventNames } = require('process');
 const app = express();
 
 const port = 3030;
@@ -84,9 +81,6 @@ app.route('/carta').get((_req, res) => {
 app.route('/articulos')
 .get((req, res) => {
 
-  req.session.email = 'asd'
-  req.session.admin = true
-
   return res.sendFile(path.join(__dirname, 'public', 'articulos.html'))
 }).post(async (req,res) => {  
 
@@ -101,30 +95,35 @@ app.route('/articulos')
 
 
 app.route('/login')
-  .get((req, res) => {
-    return res.sendFile(path.join(__dirname, 'public', 'login.html'))
-}).post(async (req, res) => {
+.get((req, res) => {
+  
+  return res.sendFile(path.join(__dirname, 'public', 'login.html'))
 
+
+}).post(async (req, res) => {
   email = req.body.email
   pssw = req.body.pssw
-
+  
   dbUserInfo = await MongoDB.getUserData(email,pssw)
-
+  
   if(dbUserInfo.length == 1){
-
+    
     req.session.email = email
-
-    if(dbUserInfo[0].data.admin){
-      req.session.admin = true
-    }
-
+    
+  if(dbUserInfo[0].data.admin){
+    req.session.admin = true
+  }
     return res.send('ok')
   } else {
     return res.send('error')
   }
 })
+
 app.route('/reservas')
   .get((req, res) => {
+
+    req.session.email = 'email'
+    req.session.admin = true
 
     if(!req.session.email){
       return res.redirect('/login')
@@ -133,8 +132,18 @@ app.route('/reservas')
 }).post(async (req,res) =>{
 
   try{
-    articulos = await MongoDB.fetch_all(req.body.coleccion)
-    res.send(articulos)
+
+    if(!req.session.admin){
+      query = {'data.email' : req.session.email}
+    } else {
+      query = {'data.estado' : 'pendiente'}
+    }
+
+    reservas = await MongoDB.fetchWithQuery(query, req.body.coleccion)
+    
+    return res.status(200).json({ bool : req.session.admin, reservas : reservas }) //// FIJARSE EN ESTO REFERENCIA
+     
+
   } catch (error){
     console.log(error)
   }
@@ -159,7 +168,7 @@ app.post('/register', async (req, res) => {
 app.post('/getButton', (req, res) => {
   if(req.session.email && req.session.admin){
 
-    btn = `<button class="admin_btn">Modificar Información</button> <button class="admin_btn2">Añadir más Información</button>`
+    btn = `<button class="admin_btn">Modificar Información</button>  <button class="admin_btn2">Añadir más Información</button>`
   
     return res.send(btn)
   }
@@ -170,8 +179,9 @@ app.post('/asignarReserva', async (req, res) => {
   email = req.session.email
   date = req.body.date
   n_personas = req.body.n_personas
+  estado = req.body.estado
 
-  response = await MongoDB.newReserva(email, date, n_personas)
+  response = await MongoDB.newReserva(email, date, n_personas, estado)
 
   if(response){
     return res.send('ok')
@@ -180,6 +190,23 @@ app.post('/asignarReserva', async (req, res) => {
   }
 
 })
+
+app.post('/asignarEvento', async (req, res) => {
+
+  email = req.session.email
+  evento = req.body.evento
+  estado = req.body.estado
+
+  response = await MongoDB.reservaEvento(email, evento, estado)
+
+  if(response){
+    return res.send('ok')
+  } else {
+    return res.send('error')
+  }
+
+})
+
 
 app.post('/getInfo', async (req, res) => {
   try{
@@ -210,8 +237,9 @@ app.post('/modifyElement', async (req, res) => {
 
   data = req.body.data
   coll = req.body.coll
+  query = req.body.query
 
-  response = await MongoDB.findAndUpdate(data, coll)
+  response = await MongoDB.findAndUpdate(data, query, coll)
   if(!response.acknowledged){
     return res.send('error')
   } else {
@@ -244,3 +272,17 @@ app.post('/deleteElement', async (req, res) => {
     return res.send('ok')
   }
 })
+
+app.post('/isLoged', async (req, res) => {
+
+  
+  if(req.session.email){
+    return res.status(200).json({email : req.session.email})
+  }
+
+})
+
+app.post('/logout', (req, res) => {
+  req.session.destroy();
+  return res.status(200).send('ok')
+});

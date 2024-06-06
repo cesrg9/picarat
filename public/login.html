@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="./css/navbar.css">
     <link rel="stylesheet" href="./css/login.css">
     <link rel="stylesheet" href="./css/footer.css">
+    <link rel="stylesheet" href="./css/modal.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Italiana&display=swap" rel="stylesheet">
@@ -29,7 +30,7 @@
         </div>
     </div>
 
-    <div class="main"> <!-- CUERPO PRINCIPAL -->
+    <div class="main" id="main"> <!-- CUERPO PRINCIPAL -->
         <div class="container_login">
             <div class="titulo">
                 Accede
@@ -83,8 +84,38 @@
                 Aceptar
             </button>
         </div>
-
+        <dialog id="modal1" class="modal1"> <!-- Modal de modificacion y borrado -->
+            <h3 id="titulo_evento">Modificar mi información</h3>
+            <hr>
+            <div class="padre">
+                <div>
+                    <div class="input">
+                        <span>Email</span>
+                        <input type="email" id="email" placeholder="Email" readonly style="background-color: rgb(195, 232, 255); border: 1px solid black;">
+                    </div>
+                    <div class="input">
+                        <span>Contraseña</span>
+                        <input type="text" id="pssw" placeholder="Contraseña segura">
+                    </div>
+                </div>
+                <div>
+                    <div class="input">
+                        <span>Nombre</span>
+                        <input placeholder="Nombre completo" id="nombre">
+                    </div>
+                    <div class="input">
+                        <span>Teléfono</span>
+                        <input placeholder="Número de teléfono" id="tlf">
+                    </div>
+                </div>
+            </div>
+            <br>
+            <hr>
+            <button class="boton" id="btn_logout">Cerrar Sesión</button>
+            <button class="boton btn_modificar">Modificar</button>
+        </dialog>
     </div>
+    
 
     <div class="footer"> <!-- FOOTER -->
 
@@ -106,6 +137,7 @@
             <p>Pórtugos (Granada)</p>
         </div>
     </div>
+
 
 </body>
 
