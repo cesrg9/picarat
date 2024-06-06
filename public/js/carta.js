@@ -14,6 +14,13 @@ document.addEventListener('DOMContentLoaded', () => {
          await getButton()
          await cargarInfoModal()
 
+      },
+      error: (xhr) => {
+         Swal.fire({
+            title: "Oh oh...",
+            text: "Parece que estamos teniendo problemas para cargar la información de esta página",
+            icon: "error"
+        });  
       }
    })
 

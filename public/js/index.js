@@ -6,7 +6,14 @@ document.addEventListener('DOMContentLoaded', () => {
         success : async (response) => {
             await cargarEventos(response);
             await funcionalidadBotones();
-        }
+        },
+        error: (xhr) => {
+            Swal.fire({
+                title: "Oh oh...",
+                text: "Parece que estamos teniendo problemas para cargar la información de esta página",
+                icon: "error"
+            }); 
+        } 
     })
 })
 

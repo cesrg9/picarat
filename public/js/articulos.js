@@ -9,17 +9,16 @@ document.addEventListener('DOMContentLoaded', () => {
       type: 'POST',
       data: JSON.stringify(raw),
       contentType: 'application/json',
-      success: async (response) => {
-         await cargarArticulos(response)
-         await getButton()
-         await cargarInfoModal()
-      }
-   })
+   }).done(async (response) => {
+      await cargarArticulos(response.articulos);
+      await getButton();
+      await cargarInfoModal();
+   }) 
 })
 
 $('.btn_close').click(() => {
-   window.modal1.close()
-   window.modal2.close()
+   window.modal1.close();
+   window.modal2.close();
 })
 
 $('.btn_delete').click(() => {
@@ -37,19 +36,19 @@ $('.btn_delete').click(() => {
       type: 'POST',
       data: JSON.stringify(raw),
       contentType: 'application/json',
-      success: async (response) => {
-         if(response == 'ok'){
-            Swal.fire({
-               title: "¡Elemento modificado!",
-               text: "Los cambios se verán reflejados al refrescar la página",
-               icon: "success"
-           });
-           window.modal1.close()
+      error: function(xhr, status, error) {
+         if (xhr.status === 500) {
+           console.log('Error: No hay usuario logueado');
          }
-      }
+       }
+   }).done(() => {
+      Swal.fire({
+         title: "¡Elemento modificado!",
+         text: "Los cambios se verán reflejados al refrescar la página",
+         icon: "success"
+     });
+     window.modal1.close()
    })
-
-
 })
 
 $('.btn_confirm').click(async () => {
@@ -77,19 +76,15 @@ $('.btn_confirm').click(async () => {
       url: '/addElement',
       type: 'POST',
       data: JSON.stringify(raw),
-      contentType: 'application/json',
-      success: async (response) => {
-         if(response == 'ok'){
-            Swal.fire({
-               title: "¡Elemento añadido!",
-               text: "Los cambios se verán reflejados al refrescar la página",
-               icon: "success"
-           });
-           window.modal2.close()
-         }
-      }
+      contentType: 'application/json'
+   }).done(() => {
+      Swal.fire({
+         title: "¡Elemento añadido!",
+         text: "Los cambios se verán reflejados al refrescar la página",
+         icon: "success"
+     });
+     window.modal2.close();
    })
-
 })
 
 $('.btn_modify').click(async () => {

@@ -1,4 +1,6 @@
 require('dotenv').config({ silent: true })
+const bcrypt = require('bcrypt');
+
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb')
 
 const urlMongo = process.env.MONGO_URL
@@ -68,11 +70,11 @@ async function fetchOne(id, coleccion){
 
 }
 
-async function getUserData(email, pssw){
+async function getUserData(email, unsecure_pssw){
     await MongoConnection.connect()
     const collection = bd.collection('usuarios')
 
-    const query = { $and : [ {"data.email" : email}, {"data.pssw" : pssw} ]}
+    const query = {"data.email" : email}
 
     const result = collection.find(query)
     let results = []
@@ -81,8 +83,15 @@ async function getUserData(email, pssw){
         results.push(doc)
     }
 
+    const isok = await bcrypt.compare(unsecure_pssw, results[0].data.pssw);
+
     await MongoConnection.close()
-    return results
+
+    if(isok){
+        return results
+    } else {
+        return false
+    }
 }
 
 async function newUser(info){

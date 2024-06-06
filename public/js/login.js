@@ -26,17 +26,16 @@ $('#btn_open').click(function () {
         data: JSON.stringify(raw),
         contentType: 'application/json',
         success: async (response) => {
-            if (response == 'ok') {
-                Swal.fire({
-                    title: "¡Acceso permitido!",
-                    text: "Ya puedes acceder a todas las funciones como usuario",
-                    icon: "success"
-                });
-                document.getElementById('error').style.display = 'none'
-            } else {
-                document.getElementById('error').style.display = 'flex'
-            }
-        }
+            Swal.fire({
+                title: "¡Acceso permitido!",
+                text: "Ya puedes acceder a todas las funciones como usuario",
+                icon: "success"
+            });
+            document.getElementById('error').style.display = 'none'
+        },
+        error: (xhr) => {
+            document.getElementById('error').style.display = 'flex'
+        } 
     })
 })
 
