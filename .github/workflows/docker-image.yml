@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build-and-push:
+  build-and-push-mongo:
     runs-on: ubuntu-latest
     steps:
       -
@@ -32,8 +32,8 @@ jobs:
         with:
           images: ${{ secrets.DOCKER_USERNAME }}/picarat-mongo
 
-jobs:
-  build-and-push:
+
+  build-and-push-node:
     runs-on: ubuntu-latest
     steps:
       -
