@@ -6,6 +6,8 @@ db.createCollection('articulos');
 db.createCollection('reservas');
 db.createCollection('usuarios');
 
+db.usuarios.createIndex({"email": 1}, {unique : true})
+
 db.eventos.insertMany([{
   "_id": ObjectId("6656d7ec2ff90a73e1a320db")
   ,
