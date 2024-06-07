@@ -1,0 +1,7 @@
+FROM mongo:jammy
+
+EXPOSE 27017
+
+COPY mongo-data /data/db
+
+# docker buildx build -t picarat-mongo -f dockerfile_mongo .

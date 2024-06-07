@@ -1,0 +1,30 @@
+version: '3'
+
+networks:
+  app-network:
+    driver: bridge
+
+services:
+  mongo:
+    image: picarat-mongo
+    volumes:
+      - mongo-data:/data/db
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+    
+
+  node:
+    image: picarat-node
+    depends_on:
+      - mongo
+    env_file:
+      - ./.env
+    ports:
+      - "3030:3030"
+    networks:
+      - app-network
+
+volumes:
+  mongo-data:

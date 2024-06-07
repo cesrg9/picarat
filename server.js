@@ -3,8 +3,6 @@
     - Hacer un control de errores de la hostia mongodb y aquí
 
     04/06
-    - **OPT** Ver si se puede cambiar el /login en funcion de si ya está logado
-    - ** SI DA TIEMPO ** Hazme los estilos bonicos anda
     - Cambiar los estilos del textarea
 
     05/06
@@ -13,15 +11,16 @@
 
     06/06
     - Estudiar todas las cauisticas
-    - Cambiar los ajax a la estructura de reservas
     - Mensajes dependiendo del estado que se devuelva
-    - Comprobar cuando debe ser admin y cuando user
     - Validar las entradas de datos
 
-    07/06 00:43
+    07/06
 
-    - Para la dockerizacion hay que mirar lo de las versiones, para más detalle, hablar con crystal
+    - Control de verisiones docker
+    - hacer un dockerignore
+    - Revisar aceptar reservas para eventos, no hay ni cancelar ni funciona, en general
 
+    - Tener en cuenta que hay que cambiar el .env
 
     - Especificar el uso de chatGPT para el bcrypt, que se ha buscado una manera de codificar las contraseñas, que se ha complementado la info básica con la documentacion y que lo he adaptado al  proyecto
     - Explicar un poco el funcionamiento de bcrypt
