@@ -1,0 +1,33 @@
+name: Picarat Cafe
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-push:
+    runs-on: ubuntu-latest
+    steps:
+      -
+        name: Checkout code
+        uses: actions/checkout@v2
+
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      -
+        name: Build and push image
+        run: |
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/picarat-mongo .
+          docker push ${{ secrets.DOCKER_USERNAME }}/picarat-mongo:latest
+
+      -
+        name: Deploy to Docker Hub
+        uses: docker/metadata-action@v3
+        with:
+          images: ${{ secrets.DOCKER_USERNAME }}/picarat-mongo
