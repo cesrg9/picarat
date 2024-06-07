@@ -23,11 +23,11 @@ jobs:
       -
         name: Build and push image
         run: |
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/picarat-cafe .
-          docker push ${{ secrets.DOCKER_USERNAME }}/picarat-cafe:latest
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/picarat-mongo -f dockerfile_node .
+          docker push ${{ secrets.DOCKER_USERNAME }}/picarat-mongo:latest
 
       -
         name: Deploy to Docker Hub
         uses: docker/metadata-action@v3
         with:
-          images: ${{ secrets.DOCKER_USERNAME }}/picarat-cafe
+          images: ${{ secrets.DOCKER_USERNAME }}/picarat-mongo
