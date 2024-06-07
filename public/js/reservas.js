@@ -117,28 +117,35 @@ function cargarReservasAdmin(reservas){
             
     padre = document.getElementById('historico_reservas')
 
-    reservas.forEach(reserva => {
-        if(reserva.data.evento){
-
-            info = reserva.data.evento.replace(/_/g, " ");
-            reserva_container = `<div class="reserva">
-            <span>Email:</span> ${reserva.data.email}<br>
-            <span>Evento:</span> ${info}<br>
-            <span>Estado:</span> ${reserva.data.estado}<br>
-            <button class="approved" value="mondongo">Aprobar reserva</button>
-            </div>`
-        } else {
-            reserva_container = `<div class="reserva">
-            <span>Email:</span> ${reserva.data.email}<br>
-            <span>Fecha:</span>${reserva.data.fecha}<br>
-            <span>Nº de personas:</span> ${reserva.data.n_personas} <br>
-            <span>Estado:</span> ${reserva.data.estado}<br>
-            <button class="approved" data-value="${reserva._id}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
-            </div>` 
-        }
-
-       padre.innerHTML += reserva_container
-    });
+    if (reservas.length != 0){
+        reservas.forEach(reserva => {
+            if(reserva.data.evento){
+    
+                info = reserva.data.evento.replace(/_/g, " ");
+                reserva_container = `<div class="reserva">
+                <span>Email:</span> ${reserva.data.email}<br>
+                <span>Evento:</span> ${info}<br>
+                <span>Estado:</span> ${reserva.data.estado}<br>
+                <button class="approved" data-value="${reserva._id}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
+                </div>`
+            } else {
+                reserva_container = `<div class="reserva">
+                <span>Email:</span> ${reserva.data.email}<br>
+                <span>Fecha:</span>${reserva.data.fecha}<br>
+                <span>Nº de personas:</span> ${reserva.data.n_personas} <br>
+                <span>Estado:</span> ${reserva.data.estado}<br>
+                <button class="approved" data-value="${reserva._id}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
+                </div>` 
+            }
+    
+           padre.innerHTML += reserva_container
+        });    
+    } else {
+        reserva_container = `<div class="reserva">
+                <span>¡Listo!</span> Ya estás al día con todas las peticiones<br>
+                </div>`
+        padre.innerHTML += reserva_container
+    }
 
     $('.approved').click(event => {
         id = $(event.target).data('value')

@@ -1,27 +1,14 @@
 /* 
   TODO:
-    - Hacer un control de errores de la hostia mongodb y aquí
-
-    04/06
-    - Cambiar los estilos del textarea
-
-    05/06
-    - Revisar todos los textos (errores, sandeces, loremipsums, etc)
-    - Añadir más datos para que al hacer las pruebas no se vea que la altura no está configurada
-
-    06/06
-    - Estudiar todas las cauisticas
-    - Mensajes dependiendo del estado que se devuelva
-    - Validar las entradas de datos
-
-    07/06
-
-    - Control de verisiones docker
-    - hacer un dockerignore
-    - Revisar aceptar reservas para eventos, no hay ni cancelar ni funciona, en general
+    - Probar que se pueden crear las imagenes con el docker-build en el pc
+    - Ahora mismo tenemos un producto minimo viable (yipee) pero faltan unas cosas (womp womp)
+      - CRUD para eventos
+      - Que los eventos se muestren en funcion de su estado y/o fecha
+      . Que al aceptar una reserva de evento el email se introduzca en el array del evento
+      - Que se muestre esa info en el modal si eres admin
+    - El resto se va a quedar un poco como está
 
     - Tener en cuenta que hay que cambiar el .env
-    - Mirar por qué ahora el docker no va
 
     - Especificar el uso de chatGPT para el bcrypt, que se ha buscado una manera de codificar las contraseñas, que se ha complementado la info básica con la documentacion y que lo he adaptado al  proyecto
     - Explicar un poco el funcionamiento de bcrypt
@@ -34,9 +21,6 @@ const crypto = require("crypto");
 const express = require('express');
 const MongoDB = require('./mongodb')
 const path = require('path');
-const { eventNames } = require('process');
-const { error } = require('console');
-const { ok } = require('assert');
 const app = express();
 
 const port = 3030;
