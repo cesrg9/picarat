@@ -21,6 +21,7 @@
     - Revisar aceptar reservas para eventos, no hay ni cancelar ni funciona, en general
 
     - Tener en cuenta que hay que cambiar el .env
+    - Mirar por qué ahora el docker no va
 
     - Especificar el uso de chatGPT para el bcrypt, que se ha buscado una manera de codificar las contraseñas, que se ha complementado la info básica con la documentacion y que lo he adaptado al  proyecto
     - Explicar un poco el funcionamiento de bcrypt
