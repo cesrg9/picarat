@@ -6,9 +6,7 @@ db.createCollection('articulos');
 db.createCollection('reservas');
 db.createCollection('usuarios');
 
-db.usuarios.createIndex({"email": 1}, {unique : true})
-
-db.eventos.insertMany([{
+db.eventos.insert([{
   "_id": ObjectId("6656d7ec2ff90a73e1a320db")
   ,
   "data": {
@@ -49,7 +47,7 @@ db.eventos.insertMany([{
   }
 }]);
 
-db.carta.insertMany([{
+db.carta.insert([{
   "_id": ObjectId("6658c365e3c33e092c2fd0f5"),
   "data": {
     "Titulo": "Sinatra",
@@ -123,7 +121,7 @@ db.carta.insertMany([{
 }
 ]);
 
-db.articulos.insertMany([
+db.articulos.insert([
     {
       "_id": ObjectId("665ce0fab1de030d6c8812a5"),
       "data": {
@@ -170,7 +168,7 @@ db.articulos.insertMany([
     }
 ]);
 
-db.reservas.insertMany([{
+db.reservas.insert([{
   "_id": "asd_2024-06-06",
   "data": {
     "email": "asd",
@@ -180,7 +178,7 @@ db.reservas.insertMany([{
   }
 }]);
 
-db.usuarios.insertMany([
+db.usuarios.insert([
   {
     "_id": ObjectId("666239da9fb45edacbae67cf"),
     "data": {
@@ -201,3 +199,5 @@ db.usuarios.insertMany([
     }
   }
 ]);
+
+db.usuarios.createIndex({"data.email": 1}, {unique : true})

@@ -30,8 +30,10 @@ $('#btn_open').click(function () {
                 title: "¡Acceso permitido!",
                 text: "Ya puedes acceder a todas las funciones como usuario",
                 icon: "success"
+            }).then(() => {
+                document.getElementById('error').style.display = 'none'
+                window.location.reload()
             });
-            document.getElementById('error').style.display = 'none'
         },
         error: (xhr) => {
             document.getElementById('error').style.display = 'flex'
@@ -64,8 +66,10 @@ $('#btn_open2').click(function () {
                     title: "¡Ya te has registrado!",
                     text: "Ya puedes acceder a todas las funciones como usuario",
                     icon: "success"
+                }).then(() => {
+                    document.getElementById('error2').style.display = 'none'
+                    window.location.reload()
                 });
-                document.getElementById('error2').style.display = 'none'
             } else {
                 document.getElementById('error2').style.display = 'flex'
             }

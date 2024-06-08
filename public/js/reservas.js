@@ -126,7 +126,7 @@ function cargarReservasAdmin(reservas){
                 <span>Email:</span> ${reserva.data.email}<br>
                 <span>Evento:</span> ${info}<br>
                 <span>Estado:</span> ${reserva.data.estado}<br>
-                <button class="approved" data-value="${reserva._id}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
+                <button class="approved" data-value="${reserva._id}" value="${info}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
                 </div>`
             } else {
                 reserva_container = `<div class="reserva">
@@ -149,7 +149,9 @@ function cargarReservasAdmin(reservas){
 
     $('.approved').click(event => {
         id = $(event.target).data('value')
-        sendUpdate(id, 'Aprobada')
+        evento = $(event.target).val()
+        console.log(evento)
+        sendUpdate(id, 'Aprobada', evento)
     })
     $('.denied').click(event => {
         id = $(event.target).data('value')
@@ -157,18 +159,29 @@ function cargarReservasAdmin(reservas){
     })    
 }
 
-function sendUpdate(id, estado){
+function sendUpdate(id, estado, evento){
     raw = {
         coll : 'reservas',
         data : {'estado' : estado},
         query: { "_id" : id }
-     }
-    
+    }
+
     $.ajax({
         url: '/modifyElement',
         type: 'POST',
         data: JSON.stringify(raw),
         contentType: 'application/json',
+    }).then(() => {
+        raw2 = {
+            coll : 'eventos',
+            query :  { 'data.Titulo' : evento}
+        }
+        $.ajax({
+            url: '/modifyParticipantes',
+            type: 'POST',
+            data: JSON.stringify(raw2),
+            contentType: 'application/json',
+        })
     }).done( () => {
         Swal.fire({
             title: "¡Reserva Aprovada!",
@@ -176,6 +189,7 @@ function sendUpdate(id, estado){
             icon: "success"
         });
     })
+
 }
 
 function cargarEventos(){

@@ -128,6 +128,7 @@ async function newUser(info){
         console.log(isok)
     
         response = await collection.insertOne(data)
+        response.admin = data.data.admin
         
         return response 
         

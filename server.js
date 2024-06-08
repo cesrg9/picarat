@@ -1,11 +1,5 @@
 /* 
   TODO:
-    - Probar que se pueden crear las imagenes con el docker-build en el pc
-    - Ahora mismo tenemos un producto minimo viable (yipee) pero faltan unas cosas (womp womp)
-      - CRUD para eventos
-      - Que los eventos se muestren en funcion de su estado y/o fecha
-      . Que al aceptar una reserva de evento el email se introduzca en el array del evento
-      - Que se muestre esa info en el modal si eres admin
     - El resto se va a quedar un poco como está
 
     - Tener en cuenta que hay que cambiar el .env
@@ -44,7 +38,8 @@ app.listen(port, function () {
 app.route('/').get((_req, res) => {
   return res.sendFile(path.join(__dirname, 'public', 'index.html'))
 }).post(async (req, res) => {
-
+    req.session.email = '2'
+    req.session.admin = true
     try {
       eventos = await MongoDB.fetch_all('eventos')
       return res.status(200).send(eventos)
@@ -95,7 +90,6 @@ app.route('/login').get((req, res) => {
       if (dbUserInfo[0].data.admin) {
         req.session.admin = true
       }
-
       return res.status(200).send('ok')
     } else {
       return res.status(404).send('error')
@@ -140,6 +134,11 @@ app.post('/register', async (req, res) => {
   if (!response.acknowledged) {
     return res.send('error')
   } else {
+    if(response.admin){
+      req.session.admin = true
+    }
+    req.session = email
+
     return res.send('ok')
   }
 
@@ -204,6 +203,10 @@ app.post('/getInfoEvento', async (req, res) => {
     coleccion = 'eventos'
 
     evento = await MongoDB.fetchOne(id, coleccion)
+    if(!req.session.admin){
+      delete evento.Participantes
+    }
+    
     return res.send(evento)
 
   } catch (error) {
@@ -268,3 +271,31 @@ app.post('/logout', (req, res) => {
   req.session.destroy();
   return res.status(200).send('ok')
 });
+
+app.post('/modifyParticipantes', async (req, res) => {
+
+  try {
+
+    query = req.body.query
+    email = req.session.email
+    coleccion = 'eventos'
+
+    evento = await MongoDB.fetchWithQuery(query, coleccion)
+    
+    participantes = evento[0].data.Participantes
+
+    participantes.push(email)
+
+    data  = {
+      'Participantes' : participantes
+    }
+
+    response = await MongoDB.findAndUpdate(data, query, coleccion)
+
+    return res.send(evento)
+    } catch (error) {
+      console.log(error)
+  }
+
+
+})

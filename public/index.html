@@ -133,8 +133,46 @@
         voluptate consequatur
         nihil exercitationem inventore! Non odio iusto consequatur dolorem voluptatum similique hic quasi aliquid
         ipsam pariatur?</span></p>
+    <p><b>Participantes:</b><br>
+      <span id="participantes"></span>
+    </p>
     <hr>
     <button class="btn_close">Cerrar</button>
+  </dialog>
+  <dialog id="modal2" class="modal1"> <!-- Modal de modificacion y borrado -->
+    <h3 id="titulo_evento">Acciones para los eventos</h3>
+    <hr>
+    <div>
+        <p><b>Eventos: </b>
+            <select id="nombres_eventos">
+                <option></option>
+            </select>
+        </p>
+        <p><b>Fecha: </b><input class="date-input" id="dia_evento2" type="date" style="flex-direction: row; align-items: center;"></p>
+        <p><b>Descripción: </b><textarea id="input_descripcion_evento2" placeholder="Introduce la nueva descripcion"></textarea></p>
+        <p><b>Organizador: </b>
+          <input type="text" id="organizador2" placeholder="Quién organiza el evento">
+      </div>
+    <hr>
+    <button class="btn_close">Cerrar</button>
+    <button class="btn_delete">Eliminar</button>
+    <button class="btn_modify">Modificar</button>
+  </dialog>
+  <dialog id="modal3" class="modal2 modal1"> <!-- Modal de info de eventos-->
+      <h3 id="titulo_evento">Acciones para la carta</h3>
+      <hr>
+      <div>
+        <p><b>Título: </b>
+          <input type="text" id="nombre" placeholder="Título del evento">
+        </p>
+        <p><b>Fecha: </b><input class="date-input" id="dia_evento" type="date" style="flex-direction: row; align-items: center;"></p>
+        <p><b>Descripción: </b><textarea id="input_descripcion_evento" placeholder="Descripción del evento"></textarea></p>
+        <p><b>Organizador: </b>
+          <input type="text" id="organizador" placeholder="Quién organiza el evento">
+      </div>
+      <hr>
+      <button class="btn_close">Cerrar</button>
+      <button class="btn_confirm">Confirmar</button>
   </dialog>
 
 </body>
