@@ -12,7 +12,7 @@ db.eventos.insert([{
   "data": {
     "Titulo": "Club de Lectura",
     "Descripcion": "Únete a nosotros en el Club de Lectura para una noche llena de intriga y suspense. En esta ocasión, discutiremos el bestseller 'La Sombra del Asesino' de Julia Navarro. ¡Comparte tus teorías y descubre quién es el asesino!",
-    "Fecha": "15-06-2024 19:00",
+    "Fecha": "2024-06-20",
     "Estado": "Pendiente",
     "Participantes": [
       "email1@ejemplo.com",
@@ -26,7 +26,7 @@ db.eventos.insert([{
   "data": {
     "Titulo": "Jam Session",
     "Descripcion": "Una experiencia única donde la música fluye libremente, sin setlists ni ensayos, solo la pasión por la música. Un grupo de músicos de diferentes estilos y géneros se reunen en el escenario y la música surge en el momento, con improvisaciones épicas y momentos de conexión entre los músicos y el público",
-    "Fecha": "22-04-2024 22:00",
+    "Fecha": "2024-06-20",
     "Estado": "Completado",
     "Participantes": [
       "email1@ejemplo.com",
@@ -40,7 +40,7 @@ db.eventos.insert([{
   "data": {
     "Titulo": "Club de la Lucha",
     "Descripcion": "Primera regla del Club de la Lucha: no hablas del Club de la Lucha.<br>\nSegunda regla del Club de la Lucha: no hablas del Club de la Lucha.<br>\nTercera regla del Club de la Lucha: si alguien dice 'stop' o tiene una lesión, la lucha se detiene.<br>\nCuarta regla del Club de la Lucha: solo dos personas luchan a la vez.<br>\nQuinta regla del Club de la Lucha: solo luchas sin camisa.<br>\nSexta regla del Club de la Lucha: las luchas son sin límite de tiempo.<br>\nSéptima regla del Club de la Lucha: luchas hasta que alguien gane.<br>\nOctava y última regla del Club de la Lucha: si esta es tu primera noche en el Club de la Lucha, tienes que luchar.",
-    "Fecha": "13-12-2024",
+    "Fecha": "2024-06-20",
     "Estado": "Pendiente",
     "Participantes": [],
     "Organizador": "David Fincher"
