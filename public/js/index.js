@@ -164,7 +164,6 @@ $('.btn_delete').click(() => {
           Titulo : nombre,
        }
     }
- 
     $.ajax({
        url: '/deleteElement',
        type: 'POST',
@@ -181,9 +180,7 @@ $('.btn_delete').click(() => {
           }
        }
     })
- 
- 
- })
+})
 
 async function showInfoEvento(id){
 
@@ -208,9 +205,11 @@ async function showInfoEvento(id){
                 response.Participantes.forEach(element => {
                     users += element + '<br>'
                 })
+                document.querySelector('#participantes').innerHTML = users
+            } else {
+                document.querySelector('#participantes_txt').innerHTML = ''
             }
 
-            document.querySelector('#participantes').innerHTML = users
 
         }
     })

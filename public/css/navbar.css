@@ -7,6 +7,13 @@
    background-color: rgb(72, 106, 49);
 }
 
+/* Aquí se impone la altura de la página cuando Swal está activo para evitar descuadres */
+.swal2-shown{
+   display: flex;
+   flex-direction: column;
+   max-height: 95%;
+}
+
 .admin_btn{
    position: fixed;
    bottom: 2.5%;

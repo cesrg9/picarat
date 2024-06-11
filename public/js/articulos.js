@@ -38,7 +38,6 @@ $('.btn_delete').click(() => {
          Titulo : nombre,
       }
    }
-
    $.ajax({
       url: '/deleteElement',
       type: 'POST',
@@ -46,7 +45,11 @@ $('.btn_delete').click(() => {
       contentType: 'application/json',
       error: function(xhr, status, error) {
          if (xhr.status === 500) {
-           console.log('Error: No hay usuario logueado');
+            Swal.fire({
+               title: "¡Error!",
+               text: "No se ha podido eliminar el documento",
+               icon: "error"
+           });
          }
        }
    }).done(() => {

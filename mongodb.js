@@ -83,13 +83,16 @@ async function getUserData(email, unsecure_pssw){
     for await (const doc of result) {
         results.push(doc)
     }
-
-    const isok = await bcrypt.compare(unsecure_pssw, results[0].data.pssw);
-
+    
     await MongoConnection.close()
 
-    if(isok){
-        return results
+    if (results[0]){
+        const isok = await bcrypt.compare(unsecure_pssw, results[0].data.pssw);
+        if(isok){
+            return results
+        } else {
+            return false
+            }
     } else {
         return false
     }
@@ -129,12 +132,13 @@ async function newUser(info){
     
         response = await collection.insertOne(data)
         response.admin = data.data.admin
+        response.email = data.data.email
         
         return response 
         
     } catch (error) {
 
-        console.log(error)
+        return error
         
     } finally {
         

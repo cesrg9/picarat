@@ -43,6 +43,8 @@ $('#btn_open').click(function () {
 
 $('#btn_open2').click(function () {
 
+    document.getElementById('error2').style.display = 'none'
+
     let email = document.getElementById('email').value
     let pssw = document.getElementById('pssw').value
     let nombre = document.getElementById('nombre').value
@@ -55,24 +57,32 @@ $('#btn_open2').click(function () {
         tlf: tlf
     }
 
+    console.log(raw)
+
+    // for (const key in raw) {
+    //     if (!raw.key || raw.ky == ''){
+    //         document.getElementById('error3').style.display = 'flex'
+    //     }
+    // }
+
     $.ajax({
         url: '/register',
         type: 'POST',
         data: JSON.stringify(raw),
         contentType: 'application/json',
         success: async (response) => {
-            if (response == 'ok') {
-                Swal.fire({
-                    title: "¡Ya te has registrado!",
-                    text: "Ya puedes acceder a todas las funciones como usuario",
-                    icon: "success"
-                }).then(() => {
-                    document.getElementById('error2').style.display = 'none'
-                    window.location.reload()
-                });
-            } else {
-                document.getElementById('error2').style.display = 'flex'
-            }
+            Swal.fire({
+                title: "¡Ya te has registrado!",
+                text: "Ya puedes acceder a todas las funciones como usuario",
+                icon: "success"
+            }).then(() => {
+                window.location.reload()
+            });
+        },
+        error: (xhr, status, error) => {
+            const errorMessage = xhr.responseJSON.error;
+            document.getElementById('error2').style.display = 'flex';
+            document.getElementById('error2').innerHTML = errorMessage;
         }
     })
 })

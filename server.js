@@ -1,15 +1,3 @@
-/* 
-  TODO:
-    - El resto se va a quedar un poco como está
-
-    - Tener en cuenta que hay que cambiar el .env
-
-    - Especificar el uso de chatGPT para el bcrypt, que se ha buscado una manera de codificar las contraseñas, que se ha complementado la info básica con la documentacion y que lo he adaptado al  proyecto
-    - Explicar un poco el funcionamiento de bcrypt
-    - Explicar el uso de crypto y que ha salido de stackoverflow
-*/
-
-
 const session = require('express-session');
 const crypto = require("crypto");
 const express = require('express');
@@ -37,9 +25,11 @@ app.listen(port, function () {
 // Página de inicio, al acceder se cargan los eventos
 app.route('/').get((_req, res) => {
   return res.sendFile(path.join(__dirname, 'public', 'index.html'))
-}).post(async (req, res) => {
-    req.session.email = '2'
-    req.session.admin = true
+})
+
+
+  .post(async (req, res) => {
+
     try {
       eventos = await MongoDB.fetch_all('eventos')
       return res.status(200).send(eventos)
@@ -47,7 +37,7 @@ app.route('/').get((_req, res) => {
     } catch (error) {
       return res.status(500).send(error)
     }
-})
+  })
 
 // Página de carta, al acceder se cargan los elementos
 app.route('/carta').get((_req, res) => {
@@ -76,32 +66,32 @@ app.route('/articulos').get((req, res) => {
 
 
 app.route('/login').get((req, res) => {
-    return res.sendFile(path.join(__dirname, 'public', 'login.html'))
+  return res.sendFile(path.join(__dirname, 'public', 'login.html'))
 }).post(async (req, res) => {
-    email = req.body.email
-    pssw = req.body.pssw
+  email = req.body.email
+  pssw = req.body.pssw
 
-    dbUserInfo = await MongoDB.getUserData(email, pssw)
+  dbUserInfo = await MongoDB.getUserData(email, pssw)
 
-    if (dbUserInfo.length == 1) {
+  if (dbUserInfo.length == 1) {
 
-      req.session.email = email
+    req.session.email = dbUserInfo[0].data.email
 
-      if (dbUserInfo[0].data.admin) {
-        req.session.admin = true
-      }
-      return res.status(200).send('ok')
-    } else {
-      return res.status(404).send('error')
+    if (dbUserInfo[0].data.admin) {
+      req.session.admin = true
     }
-  })
+    return res.status(200).send('ok')
+  } else {
+    return res.status(404).send('error')
+  }
+})
 
 app.route('/reservas').get((req, res) => {
-    if (!req.session.email) {
-      return res.redirect('/login')
-    } else {
-      return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
-    }
+  // if (!req.session.email) {
+  //   return res.status(502).json()
+  // } else {
+  return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
+  // }
 }).post(async (req, res) => {
 
   try {
@@ -126,20 +116,35 @@ app.route('/reservas').get((req, res) => {
 
 app.post('/register', async (req, res) => {
 
-  let info = req.body
+  try {
 
+    let info = req.body
 
-  response = await MongoDB.newUser(info)
+    for (const key in info) {
+      if (info[key] == '' || info[key] == undefined) {
+        return res.status(500).json({error : 'Se han encontrado campos vacíos'})
+      }
+    }
 
-  if (!response.acknowledged) {
-    return res.send('error')
-  } else {
-    if(response.admin){
+    response = await MongoDB.newUser(info)
+
+    if(response.code === 11000){
+      throw error
+    }
+
+    if(!isValidEmail(info.email)){
+      return res.status(500).json({error : 'El email no es válido'})
+    }
+
+    if (response.admin) {
       req.session.admin = true
     }
-    req.session = email
+    req.session.email = response.email
 
     return res.send('ok')
+  
+  } catch (error){
+    return res.status(500).json({error : 'El email ya está registrado'})
   }
 
 })
@@ -163,9 +168,9 @@ app.post('/asignarReserva', async (req, res) => {
   response = await MongoDB.newReserva(email, date, n_personas, estado)
 
   if (response) {
-    return res.send('ok')
+    return res.status(200).send('ok')
   } else {
-    return res.send('error')
+    return res.status(500).send('error')
   }
 
 })
@@ -203,10 +208,10 @@ app.post('/getInfoEvento', async (req, res) => {
     coleccion = 'eventos'
 
     evento = await MongoDB.fetchOne(id, coleccion)
-    if(!req.session.admin){
+    if (!req.session.admin) {
       delete evento.Participantes
     }
-    
+
     return res.send(evento)
 
   } catch (error) {
@@ -281,21 +286,26 @@ app.post('/modifyParticipantes', async (req, res) => {
     coleccion = 'eventos'
 
     evento = await MongoDB.fetchWithQuery(query, coleccion)
-    
+
     participantes = evento[0].data.Participantes
 
     participantes.push(email)
 
-    data  = {
-      'Participantes' : participantes
+    data = {
+      'Participantes': participantes
     }
 
     response = await MongoDB.findAndUpdate(data, query, coleccion)
 
     return res.send(evento)
-    } catch (error) {
-      console.log(error)
+  } catch (error) {
+    console.log(error)
   }
 
 
 })
+
+function isValidEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}

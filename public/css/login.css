@@ -60,7 +60,7 @@ body {
     display: none;
 
 }
-#error2{
+#error2, #error3{
     padding-top: 1%;
     padding-left: 5%;
     align-self: flex-start;
