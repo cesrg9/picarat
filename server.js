@@ -26,9 +26,6 @@ app.listen(port, function () {
 app.route('/').get((_req, res) => {
   return res.sendFile(path.join(__dirname, 'public', 'index.html'))
 }).post(async (req, res) => {
-
-    req.session.email = 'yes'
-    req.session.admin = true
     try {
       eventos = await MongoDB.fetch_all('eventos')
       return res.status(200).send(eventos)
@@ -159,20 +156,28 @@ app.post('/getButton', (req, res) => {
 
 app.post('/asignarReserva', async (req, res) => {
 
-  email = req.session.email
-  date = req.body.date
-  n_personas = req.body.n_personas
-  estado = req.body.estado
-  today = new Date()
-  dateasdate = new Date(date)
+    email = req.session.email
+    date = req.body.date
+    n_personas = req.body.n_personas
+    estado = req.body.estado
+    today = new Date()
+    dateasdate = new Date(date)
+  
+    if(dateasdate < today){
+      return res.status(500).json({error:'La fecha no puede ser anterior a hoy'})
+    } else if (!n_personas || n_personas <= 0){
+      return res.status(500).json({error:'El número de comensales no es válido'})
+    } else if (dateasdate == 'Invalid Date'){
+      return res.status(500).json({error:'La fecha no es válida'})
+    } else {
+      response = await MongoDB.newReserva(email, date, n_personas, estado)
+    }
 
-  if(dateasdate < today){
-    return res.status(500).json({error:'La fecha no puede ser anterior a hoy'})
-  } else if (!n_personas || n_personas <= 0){
-    return res.status(500).json({error:'El número de comensales no es válido'})
-  } else {
-    response = await MongoDB.newReserva(email, date, n_personas, estado)
-  }
+    if(!response.code){
+      return res.status(200).send('ok')
+    } else if (response.code == 11000){
+      return res.status(500).json({error:'Ya se ha realizado una reserva para este dia'})
+    }
 
 })
 
@@ -291,7 +296,7 @@ app.post('/modifyParticipantes', async (req, res) => {
   try {
 
     query = req.body.query
-    email = req.session.email
+    email = req.body.email
     coleccion = 'eventos'
 
     evento = await MongoDB.fetchWithQuery(query, coleccion)
@@ -306,7 +311,7 @@ app.post('/modifyParticipantes', async (req, res) => {
 
     response = await MongoDB.findAndUpdate(data, query, coleccion)
 
-    return res.send(evento)
+    return res.status(200).send(evento)
   } catch (error) {
     console.log(error)
   }

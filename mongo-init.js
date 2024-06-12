@@ -18,6 +18,7 @@ db.eventos.insert([{
       "email1@ejemplo.com",
       "email2@ejemplo.com"
     ],
+    "N_participantes" : 10,
     "Organizador": "Librería La Tarara"
   }
 },
@@ -32,6 +33,7 @@ db.eventos.insert([{
       "email1@ejemplo.com",
       "email2@ejemplo.com"
     ],
+    "N_participantes" : 3,
     "Organizador": "The Lighthouse Music Group"
   }
 },
@@ -43,6 +45,7 @@ db.eventos.insert([{
     "Fecha": "2024-06-20",
     "Estado": "Pendiente",
     "Participantes": [],
+    "N_participantes" : 2,
     "Organizador": "David Fincher"
   }
 }]);

@@ -168,7 +168,7 @@ async function newReserva(email, date, n_personas, estado){
         
         return response
     } catch (error){
-        console.log(error)
+        return error
     } finally {
         await MongoConnection.close()
     } 

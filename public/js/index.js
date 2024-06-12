@@ -123,10 +123,12 @@ $('.btn_modify').click(async () => {
 
 $('.btn_confirm').click(async () => {
    
+    document.getElementById('error2').style.display = 'none';
     nombre = document.getElementById('nombre').value
     dia_evento = document.getElementById('dia_evento').value
     descripcion = document.getElementById('input_descripcion_evento').value
     organizador = document.getElementById('organizador').value
+    n_participantes = Number(document.getElementById('n_participantes').value)
 
     raw = {
        coll : 'eventos',
@@ -135,7 +137,8 @@ $('.btn_confirm').click(async () => {
           Descripcion : descripcion,
           Fecha : dia_evento,
           Participantes : [],
-          Organizador: organizador
+          Organizador: organizador,
+          N_participantes : n_participantes
        }
     }
 
@@ -143,8 +146,8 @@ $('.btn_confirm').click(async () => {
     today= new Date()
 
     if(diaDate < today || diaDate == 'Invalid Date'){
-        document.getElementById('error').style.display = 'flex';
-        document.getElementById('error').innerHTML = 'La fecha introducida no es válida';
+        document.getElementById('error2').style.display = 'flex';
+        document.getElementById('error2').innerHTML = 'La fecha introducida no es válida';
     } else {
         $.ajax({
         url: '/addElement',
@@ -163,8 +166,8 @@ $('.btn_confirm').click(async () => {
         },
         error: (xhr) => {
                 const errorMessage = xhr.responseJSON.error;
-                document.getElementById('error').style.display = 'flex';
-                document.getElementById('error').innerHTML = errorMessage;
+                document.getElementById('error2').style.display = 'flex';
+                document.getElementById('error2').innerHTML = errorMessage;
             }
         })
     }

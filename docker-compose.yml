@@ -19,17 +19,22 @@ services:
       context: ./
       dockerfile: dockerfile_node
     image: picarat-node
+    container_name: nodejs
     networks:
       tb-red:
     depends_on:
       - mongo
     env_file:
       - ./.env-docker
+    hostname: nodejs
     ports:
       - "3030:3030"
+    volumes:
+      - node_data:/data
 
 volumes:
   mongodb_data:
+  node_data:
 
 networks:
   tb-red:
