@@ -39,8 +39,7 @@
         <br>
         <span class="sobretitulo">Sobre nosotros</span>
         <p>Picarat Café nace de la idea de no ser solo una cafetería. Aquí no solo podrás degustar de cafés de
-          especialidad, otras bebidas y cócteles únicos sino que también podrás disfrutar de tu múscica y libros
-          favoritos para acompañar.
+          especialidad, otras bebidas y cócteles únicos sino que también podrás disfrutar de tu música favorita para acompañar.
           Con equipos de música de alta calidad podrás disfrutar de la mejor música de manera independiente en lo que
           disfrutas de tu bebida.
           <br><br>
@@ -54,7 +53,7 @@
         <br>
         <span class="sobretitulo">Qué hay de tomar</span>
         <p>
-          Dentro de nuestra carta podrás disfrutar no solo de cafés únicos y de especialidad, pero si no eres muy de
+          Dentro de nuestra carta podrás disfrutar no cafés únicos y de especialidad, pero si no eres muy de
           café tenemos otras alternativas para tí:
         <ul>
           <li>Cócteles</li>
@@ -70,7 +69,7 @@
         <br>
         <span class="sobretitulo">Música</span>
         <p>
-          ¿Te animas a probar la experiencia tomarte tu café favorito mientras te sumerges en tu música favorita?
+          ¿Te animas a probar la experiencia tomarte tu café mientras te sumerges en tu música favorita?
           <br>
           <br>
           Consulta nuestro catálogo completo y así podrás decídirte antes incluso de venir al local
@@ -151,14 +150,15 @@
         <p><b>Fecha: </b><input class="date-input" id="dia_evento2" type="date" style="flex-direction: row; align-items: center;"></p>
         <p><b>Descripción: </b><textarea id="input_descripcion_evento2" placeholder="Introduce la nueva descripcion"></textarea></p>
         <p><b>Organizador: </b>
-          <input type="text" id="organizador2" placeholder="Quién organiza el evento">
+          <input type="text" id="organizador2" placeholder="Quién organiza el evento"></p>
+        <span class='error' id="error"></span>
       </div>
     <hr>
     <button class="btn_close">Cerrar</button>
     <button class="btn_delete">Eliminar</button>
     <button class="btn_modify">Modificar</button>
   </dialog>
-  <dialog id="modal3" class="modal2 modal1"> <!-- Modal de info de eventos-->
+  <dialog id="modal3" class="modal2 modal1"> <!-- Modal de añadir eventos-->
       <h3 id="titulo_evento">Añadir evento</h3>
       <hr>
       <div>
@@ -168,7 +168,8 @@
         <p><b>Fecha: </b><input class="date-input" id="dia_evento" type="date" style="flex-direction: row; align-items: center;"></p>
         <p><b>Descripción: </b><textarea id="input_descripcion_evento" placeholder="Descripción del evento"></textarea></p>
         <p><b>Organizador: </b>
-          <input type="text" id="organizador" placeholder="Quién organiza el evento">
+          <input type="text" id="organizador" placeholder="Quién organiza el evento"></p>
+        <span class='error' id="error"></span>
       </div>
       <hr>
       <button class="btn_close">Cerrar</button>

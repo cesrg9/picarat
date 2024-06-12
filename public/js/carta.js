@@ -42,6 +42,10 @@ $('.btn_delete').click(() => {
       }
    }
 
+   if(!nombre || nombre == ''){
+      document.getElementById('error').style.display = 'flex';
+      document.getElementById('error').innerHTML = 'Debes seleccionar una opción';
+   } else {
    $.ajax({
       url: '/deleteElement',
       type: 'POST',
@@ -54,12 +58,12 @@ $('.btn_delete').click(() => {
                text: "Los cambios se verán reflejados al refrescar la página",
                icon: "success"
            });
+           document.getElementById('error').style.display = 'none';
            window.modal1.close()
          }
       }
    })
-
-
+   }
 })
 
 
@@ -67,7 +71,7 @@ $('.btn_modify').click(async () => {
    
    nombre = document.getElementById('nombres_carta').value
    precio = document.getElementById('precio').value
-   descripcion = document.getElementById('descripcion_carta').value
+   descripcion = document.getElementById('descripcion_carta').value.replace(/\n/g, '<br>');
    disponible = (document.getElementById('disponible').value === "true")
 
    info = {
@@ -76,6 +80,7 @@ $('.btn_modify').click(async () => {
       Descripcion : descripcion,
       Disponibilidad : disponible
    }
+
 
    for (key in info){
       if(info[key] === "" || info[key] === undefined){
@@ -88,6 +93,11 @@ $('.btn_modify').click(async () => {
       data : info,
       query: { "data.Titulo" : nombre }
    }
+
+   if(!nombre || nombre == ''){
+      document.getElementById('error').style.display = 'flex';
+      document.getElementById('error').innerHTML = 'Debes seleccionar una opción';
+   } else {
    $.ajax({
       url: '/modifyElement',
       type: 'POST',
@@ -100,18 +110,24 @@ $('.btn_modify').click(async () => {
                text: "Los cambios se verán reflejados al refrescar la página",
                icon: "success"
            });
+           document.getElementById('error').style.display = 'none';
            window.modal1.close()
          }
-      }
+      },
+      error: (xhr) => {
+         const errorMessage = xhr.responseJSON.error;
+         document.getElementById('error').style.display = 'flex';
+         document.getElementById('error').innerHTML = errorMessage;
+     }
    })
-
+}
 })
 
 $('.btn_confirm').click(async () => {
    
    nombre = document.getElementById('nombre').value
    precio = document.getElementById('precio2').value
-   descripcion = document.getElementById('descripcion_carta2').value
+   descripcion = document.getElementById('descripcion_carta2').value.replace(/\n/g, '<br>');
    disponible = (document.getElementById('disponible2').value === "true")
 
    raw = {
@@ -137,8 +153,14 @@ $('.btn_confirm').click(async () => {
                icon: "success"
            });
            window.modal2.close()
+           document.getElementById('error2').style.display = 'none';
          }
-      }
+      },
+      error: (xhr) => {
+         const errorMessage = xhr.responseJSON.error;
+         document.getElementById('error2').style.display = 'flex';
+         document.getElementById('error2').innerHTML = errorMessage;
+     }
    })
 
 })

@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             await cargarReservasUser(response.reservas)
         }
         await cargarEventos()
-    }).fail(function () {
+    }).error(function () {
         alert("Algo salió mal");
     })
 })
@@ -32,34 +32,25 @@ $('#btn_confirm').click(function () { //reserva para mesa
         n_personas: document.getElementById('comensales_reserva').value,
         estado: 'pendiente'
     }
-
-    if (raw.n_personas <= 0  || !raw.date ) {
-        document.getElementById('error').style.display = 'block'
-        } else {
-            
-            
-            $.ajax({
-                url: '/asignarReserva',
-                type: 'POST',
-                data: JSON.stringify(raw),
-                contentType: 'application/json',
-                success: async (response) => {
-                    document.getElementById('error').style.display = 'none'
-                    Swal.fire({
-                        title: "Reserva pendiente",
-                        text: "Tu reserva pasará a ser confirmada por un administrador",
-                        icon: "success"
-                        });
-            },
-            fail: (xhr) => {
-                Swal.fire({
-                    title: "Ups..",
-                    text: "Lo sentimos, ha ocurrido un error al procesar tu reserva",
-                    icon: "error"
+    $.ajax({
+        url: '/asignarReserva',
+        type: 'POST',
+        data: JSON.stringify(raw),
+        contentType: 'application/json',
+        success: async (response) => {
+            document.getElementById('error').style.display = 'none'
+            Swal.fire({
+                title: "Reserva pendiente",
+                text: "Tu reserva pasará a ser confirmada por un administrador",
+                icon: "success"
                 });
-            }
-        })
-    }
+        },
+        error: (xhr) => {
+            const errorMessage = xhr.responseJSON.error;
+            document.getElementById('error').style.display = 'flex';
+            document.getElementById('error').innerHTML = errorMessage;
+        }
+    })
 })
 
 $('#btn_confirm2').click(function () { // reserva para evento

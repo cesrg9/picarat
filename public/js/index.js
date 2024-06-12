@@ -98,6 +98,10 @@ $('.btn_modify').click(async () => {
        data : info,
        query: { "data.Titulo" : nombre }
     }
+    if(!nombre || nombre == ''){
+        document.getElementById('error').style.display = 'flex';
+        document.getElementById('error').innerHTML = 'Debes seleccionar un elemento';
+    } else {
     $.ajax({
        url: '/modifyElement',
        type: 'POST',
@@ -114,7 +118,7 @@ $('.btn_modify').click(async () => {
           }
        }
     })
- 
+    }
 })
 
 $('.btn_confirm').click(async () => {
@@ -135,25 +139,35 @@ $('.btn_confirm').click(async () => {
        }
     }
 
-    console.log(raw)
- 
-    $.ajax({
-       url: '/addElement',
-       type: 'POST',
-       data: JSON.stringify(raw),
-       contentType: 'application/json',
-       success: async (response) => {
-            window.modal3.close()
-            if(response == 'ok'){
-                Swal.fire({
-                    title: "¡Elemento añadido!",
-                    text: "Los cambios se verán reflejados al refrescar la página",
-                    icon: "success"
-                })
+    diaDate = new Date(dia_evento)
+    today= new Date()
+
+    if(diaDate < today || diaDate == 'Invalid Date'){
+        document.getElementById('error').style.display = 'flex';
+        document.getElementById('error').innerHTML = 'La fecha introducida no es válida';
+    } else {
+        $.ajax({
+        url: '/addElement',
+        type: 'POST',
+        data: JSON.stringify(raw),
+        contentType: 'application/json',
+        success: async (response) => {
+                window.modal3.close()
+                if(response == 'ok'){
+                    Swal.fire({
+                        title: "¡Elemento añadido!",
+                        text: "Los cambios se verán reflejados al refrescar la página",
+                        icon: "success"
+                    })
+                }
+        },
+        error: (xhr) => {
+                const errorMessage = xhr.responseJSON.error;
+                document.getElementById('error').style.display = 'flex';
+                document.getElementById('error').innerHTML = errorMessage;
             }
-       }
-    })
- 
+        })
+    }
 })
 
 $('.btn_delete').click(() => {
@@ -164,22 +178,27 @@ $('.btn_delete').click(() => {
           Titulo : nombre,
        }
     }
-    $.ajax({
-       url: '/deleteElement',
-       type: 'POST',
-       data: JSON.stringify(raw),
-       contentType: 'application/json',
-       success: async (response) => {
-          window.modal2.close()
-          if(response == 'ok'){
-             Swal.fire({
-                title: "¡Elemento modificado!",
-                text: "Los cambios se verán reflejados al refrescar la página",
-                icon: "success"
-            });
-          }
-       }
-    })
+    if(!nombre || nombre == ''){
+        document.getElementById('error').style.display = 'flex';
+        document.getElementById('error').innerHTML = 'Debes seleccionar un elemento';
+    } else {
+        $.ajax({
+            url: '/deleteElement',
+            type: 'POST',
+            data: JSON.stringify(raw),
+            contentType: 'application/json',
+            success: async (response) => {
+                window.modal2.close()
+                if(response == 'ok'){
+                    Swal.fire({
+                    title: "¡Elemento modificado!",
+                    text: "Los cambios se verán reflejados al refrescar la página",
+                    icon: "success"
+                });
+                }
+            }
+        })
+    }
 })
 
 async function showInfoEvento(id){

@@ -66,13 +66,15 @@
                     <option></option>
                 </select>
             </p>
-            <p><b>Precio: </b><input type="number" id="precio" placeholder="Introduce un numero"></p>
+            <p><b>Precio: </b><input type="number" step="0.01" id="precio" placeholder="Introduce un numero"></p>
             <p><b>Descripción: </b><textarea id="descripcion_carta" placeholder="Introduce la nueva descripcion"></textarea></p>
             <p><b>Disponible: </b>
                 <select id="disponible"> <!-- CARGA DE LOS ELEMENTOS RECIBIDOS -->
                     <option value=true>Si</option>
                     <option value=false>No</option>
                 </select></p>
+            <span class='error' id="error"></span>
+
         </div>
         <hr>
         <button class="btn_close">Cerrar</button>
@@ -86,13 +88,14 @@
             <p><b>Artículo: </b>
                 <input type="text" id="nombre" placeholder="Nombre del nuevo producto">
             </p>
-            <p><b>Precio: </b><input type="number" id="precio2" placeholder="Introduce un numero"></p>
+            <p><b>Precio: </b><input type="number" step="0.01" id="precio2" placeholder="Introduce un numero"></p>
             <p><b>Descripción: </b><textarea id="descripcion_carta2" placeholder="Introduce la nueva descripcion"></textarea></p>
             <p><b>Disponible: </b>
                 <select id="disponible2"> <!-- CARGA DE LOS ELEMENTOS RECIBIDOS -->
                     <option value=true>Si</option>
                     <option value=false>No</option>
                 </select></p>
+            <span class='error' id="error2"></span>
         </div>
         <hr>
         <button class="btn_close">Cerrar</button>

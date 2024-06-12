@@ -100,3 +100,10 @@ span a{
    display: flex;
    justify-content: flex-end;
 }
+
+#error, #error2{
+   font-weight: 600;
+   color: rgb(248, 0, 0);
+   display: none;
+
+}

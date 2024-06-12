@@ -25,11 +25,10 @@ app.listen(port, function () {
 // Página de inicio, al acceder se cargan los eventos
 app.route('/').get((_req, res) => {
   return res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
+}).post(async (req, res) => {
 
-
-  .post(async (req, res) => {
-
+    req.session.email = 'yes'
+    req.session.admin = true
     try {
       eventos = await MongoDB.fetch_all('eventos')
       return res.status(200).send(eventos)
@@ -87,11 +86,11 @@ app.route('/login').get((req, res) => {
 })
 
 app.route('/reservas').get((req, res) => {
-  // if (!req.session.email) {
-  //   return res.status(502).json()
-  // } else {
-  return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
-  // }
+  if (!req.session.email) {
+    return res.redirect('/login')
+  } else {
+    return res.sendFile(path.join(__dirname, 'public', 'reservas.html'))
+  }
 }).post(async (req, res) => {
 
   try {
@@ -104,7 +103,7 @@ app.route('/reservas').get((req, res) => {
 
     reservas = await MongoDB.fetchWithQuery(query, req.body.coleccion)
 
-    return res.status(200).json({ bool: req.session.admin, reservas: reservas }) //// FIJARSE EN ESTO REFERENCIA
+    return res.status(200).json({ bool: req.session.admin, reservas: reservas })
 
 
   } catch (error) {
@@ -126,14 +125,14 @@ app.post('/register', async (req, res) => {
       }
     }
 
+    if(!isValidEmail(info.email)){
+      return res.status(500).json({error : 'El email no es válido'})
+    }
+
     response = await MongoDB.newUser(info)
 
     if(response.code === 11000){
       throw error
-    }
-
-    if(!isValidEmail(info.email)){
-      return res.status(500).json({error : 'El email no es válido'})
     }
 
     if (response.admin) {
@@ -164,13 +163,15 @@ app.post('/asignarReserva', async (req, res) => {
   date = req.body.date
   n_personas = req.body.n_personas
   estado = req.body.estado
+  today = new Date()
+  dateasdate = new Date(date)
 
-  response = await MongoDB.newReserva(email, date, n_personas, estado)
-
-  if (response) {
-    return res.status(200).send('ok')
+  if(dateasdate < today){
+    return res.status(500).json({error:'La fecha no puede ser anterior a hoy'})
+  } else if (!n_personas || n_personas <= 0){
+    return res.status(500).json({error:'El número de comensales no es válido'})
   } else {
-    return res.status(500).send('error')
+    response = await MongoDB.newReserva(email, date, n_personas, estado)
   }
 
 })
@@ -240,11 +241,17 @@ app.post('/addElement', async (req, res) => {
   data = req.body.data
   coll = req.body.coll
 
+  for (const key in data) {
+    if ((data[key] == '' || data[key] == undefined) && (key !== 'Participantes')) {
+        return res.status(500).json({error : 'Se han encontrado campos vacíos'})
+    }
+  }
+
   response = await MongoDB.addOne(data, coll)
   if (!response.acknowledged) {
     return res.send('error')
   } else {
-    return res.send('ok')
+    return res.status(200).send('ok')
   }
 })
 
@@ -252,6 +259,8 @@ app.post('/deleteElement', async (req, res) => {
 
   data = req.body.data
   coll = req.body.coll
+
+  
 
   response = await MongoDB.deleteOne(data, coll)
   if (response.deletedCount !== 1) {
