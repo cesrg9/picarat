@@ -54,7 +54,7 @@ db.carta.insert([{
   "_id": ObjectId("6658c365e3c33e092c2fd0f5"),
   "data": {
     "Titulo": "Sinatra",
-    "Precio": "20",
+    "Precio": "6.00",
     "Descripcion": " Cóctail hecho a base de zumo de piña, menta, granadina y extracto de fruta de la pasión ",
     "Disponibilidad": true
   }
@@ -81,8 +81,8 @@ db.carta.insert([{
   "_id": ObjectId("6658c435e3c33e092c2fd0f8"),
   "data": {
     "Titulo": "Café con leche",
-    "Descripcion": "Café con leche simple\nCon opción para llevar",
-    "Precio": "1",
+    "Descripcion": "Café con leche de toda la vida\nCon opción para llevar",
+    "Precio": "1.10",
     "Disponibilidad": true
   }
 },
@@ -91,7 +91,7 @@ db.carta.insert([{
   "data": {
     "Descripcion": "Tabla de tartaletas de crema de chocolate, limón y pistacho \<br> Opción sin gluten",
     "Disponibilidad": true,
-    "Precio": "5",
+    "Precio": "5.00",
     "Titulo": "Air, Soil and Water"
   }
 },
@@ -100,7 +100,7 @@ db.carta.insert([{
   "data": {
     "Descripcion": "Té de Limón con notas de canela acompañado por unas pastas exquisitas pastas artesanales de té verde",
     "Disponibilidad": true,
-    "Precio": "5",
+    "Precio": "4.20",
     "Titulo": "John Lemon"
   }
 },
@@ -117,8 +117,8 @@ db.carta.insert([{
   "_id": ObjectId("66608395d2247307f3bdb42a"),
   "data": {
     "Titulo": "Tarta de Lotus",
-    "Precio": "4",
-    "Descripcion": "Mondogno de lotus",
+    "Precio": "4.00",
+    "Descripcion": "Si eres fanático de estas clásicas galletas de caramelo, este postre es para tí",
     "Disponibilidad": true
   }
 }
@@ -171,33 +171,43 @@ db.articulos.insert([
     }
 ]);
 
-db.reservas.insert([{
-  "_id": "asd_2024-06-06",
-  "data": {
-    "email": "asd",
-    "fecha": "2024-06-06",
-    "n_personas": "2",
-    "estado": "Denegada"
-  }
-}]);
-
-db.usuarios.insert([
+db.reservas.insert([
   {
-    "_id": ObjectId("666239da9fb45edacbae67cf"),
+    "_id": "usuario@mail.com_2024-06-18",
     "data": {
-      "email": "1",
-      "pssw": "$2b$05$IvWRNZLY.DaGncdZrfFXweV7yOcqFuELK8jq8ghuBrZEPXU8ZUX9u",
-      "nombre": "",
-      "tlf": ""
+      "email": "usuario@mail.com",
+      "fecha": "2024-06-18",
+      "n_personas": "4",
+      "estado": "Pendiente"
     }
   },
   {
-    "_id": ObjectId("66623a019fb45edacbae67d0"),
+    "_id": "usuario@mail.com_Club_de_Lectura",
     "data": {
-      "email": "2",
+      "email": "usuario@mail.com",
+      "evento": "Club_de_Lectura",
+      "estado": "Pendiente"
+    }
+  }
+]);
+
+db.usuarios.insert([
+  {
+    "_id": ObjectId("666a13d50c0b4541118f21bc"),
+    "data": {
+      "email": "usuario@mail.com",
+      "pssw": "$2b$05$1X.29V6VeQyAhYREeXL.T.F6iRpdJDnXTRFpo.xNXa3dVcgpQMPeG",
+      "nombre": "Usuario Ejemplo",
+      "tlf": "555 - 0000"
+    }
+  },
+  {
+    "_id": ObjectId("666a13f60c0b4541118f21bd"),
+    "data": {
+      "email": "administrador@mail.com",
       "pssw": "$2b$05$azeaf3zOX9qElBifVTPGFu7VcsMcaVckNe1vp.ltPQ.aMWe/b8ZRG",
-      "nombre": "",
-      "tlf": "",
+      "nombre": "Administrador Ejemplo",
+      "tlf": "555 - 0001",
       "admin": true
     }
   }

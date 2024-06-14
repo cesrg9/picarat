@@ -126,9 +126,6 @@ async function newUser(info){
         
             data.data.pssw = hash
         }
-
-        console.log(data.data.pssw)
-        console.log(isok)
     
         response = await collection.insertOne(data)
         response.admin = data.data.admin
@@ -218,9 +215,6 @@ async function findAndUpdate(data, query, coll){
         const newData = {
             $set : info
         }
-
-        console.log(query)
-        console.log(newData)
         
         response = await collection.updateOne(query, newData)
         

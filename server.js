@@ -1,7 +1,8 @@
 const session = require('express-session');
-const crypto = require("crypto");
-const express = require('express');
 const MongoDB = require('./mongodb')
+const express = require('express');
+const bcrypt = require('bcrypt');
+const crypto = require("crypto");
 const path = require('path');
 const app = express();
 
@@ -95,7 +96,7 @@ app.route('/reservas').get((req, res) => {
     if (!req.session.admin) {
       query = { 'data.email': req.session.email }
     } else {
-      query = { 'data.estado': 'pendiente' }
+      query = { 'data.estado': 'Pendiente' }
     }
 
     reservas = await MongoDB.fetchWithQuery(query, req.body.coleccion)
@@ -317,6 +318,16 @@ app.post('/modifyParticipantes', async (req, res) => {
   }
 
 
+})
+
+app.post('/hashPsswd', async (req, res) => {
+  const saltRounds = 5;
+
+  unsecure_psswd = req.body.psswd
+
+  hash = await bcrypt.hash(unsecure_psswd, saltRounds)
+
+  return res.status(200).json({hashedPssws : hash})
 })
 
 function isValidEmail(email) {

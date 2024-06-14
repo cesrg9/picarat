@@ -147,3 +147,15 @@ select option{
 .evento{
     margin-left: 4%;
 }
+
+.boton_reservas{
+    font-family: "Inter", sans-serif;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: white;
+    background-color: #4b3a2b;
+    border-radius: 10px;
+    text-decoration: none;
+}

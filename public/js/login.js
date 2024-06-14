@@ -57,14 +57,6 @@ $('#btn_open2').click(function () {
         tlf: tlf
     }
 
-    console.log(raw)
-
-    // for (const key in raw) {
-    //     if (!raw.key || raw.ky == ''){
-    //         document.getElementById('error3').style.display = 'flex'
-    //     }
-    // }
-
     $.ajax({
         url: '/register',
         type: 'POST',
@@ -107,7 +99,7 @@ function funcionalidadBotones() {
 
     })
 
-    $('.btn_modificar').click(function () {
+    $('.btn_modificar').click(async function () {
 
         let email = document.getElementById('email').value
         let pssw = document.getElementById('pssw').value
@@ -119,6 +111,21 @@ function funcionalidadBotones() {
             pssw: pssw,
             nombre: nombre,
             tlf: tlf
+        }
+
+        if(!(!pssw || pssw =='')){
+            let raw = {
+                psswd : pssw
+            };
+            await $.ajax({
+                url: '/hashPsswd',
+                type: 'POST',
+                data: JSON.stringify(raw),
+                contentType: 'application/json',
+                success : (response) =>{
+                    info.pssw = response.hashedPssws
+                }
+            })
         }
 
         for (key in info) {
@@ -137,15 +144,14 @@ function funcionalidadBotones() {
             url: '/modifyElement',
             type: 'POST',
             data: JSON.stringify(raw),
-            contentType: 'application/json'
-        }).done(() => {
-            Swal.fire({
-                title: "¡Acción procesada!",
-                text: "La información que has introducido ha sido actualizada",
-                icon: "success"
-            });
+            contentType: 'application/json',
+            success: () => {
+                Swal.fire({
+                    title: "¡Acción procesada!",
+                    text: "La información que has introducido ha sido actualizada",
+                    icon: "success"
+                });
+            }
         })
-
     })
-
 }

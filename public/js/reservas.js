@@ -34,7 +34,7 @@ $('#btn_confirm').click(function () { //reserva para mesa
     raw = {
         date: document.getElementById('dia_reserva').value,
         n_personas: document.getElementById('comensales_reserva').value,
-        estado: 'pendiente'
+        estado: 'Pendiente'
     }
     $.ajax({
         url: '/asignarReserva',
@@ -61,7 +61,7 @@ $('#btn_confirm2').click(function () { // reserva para evento
 
     raw = {
         evento: document.getElementById('reserva_evento').value,
-        estado: 'pendiente'
+        estado: 'Pendiente'
     }
 
     $.ajax({
@@ -130,7 +130,7 @@ function cargarReservasAdmin(reservas) {
                 <span>Email:</span> ${reserva.data.email}<br>
                 <span>Evento:</span> ${info}<br>
                 <span>Estado:</span> ${reserva.data.estado}<br>
-                <button class="approved" data-value="${reserva._id}"  value="${info}//${reserva.data.email}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
+                <button class="approved boton_reservas" data-value="${reserva._id}"  value="${info}//${reserva.data.email}">Aprobar reserva</button><button class="denied boton_reservas" data-value="${reserva._id}">Denegar reserva</button>
                 </div>`
             } else {
                 reserva_container = `<div class="reserva">
@@ -138,7 +138,7 @@ function cargarReservasAdmin(reservas) {
                 <span>Fecha:</span>${reserva.data.fecha}<br>
                 <span>Nº de personas:</span> ${reserva.data.n_personas} <br>
                 <span>Estado:</span> ${reserva.data.estado}<br>
-                <button class="approved" data-value="${reserva._id}">Aprobar reserva</button><button class="denied" data-value="${reserva._id}">Denegar reserva</button>
+                <button class="approved boton_reservas" data-value="${reserva._id}">Aprobar reserva</button><button class="denied boton_reservas" data-value="${reserva._id}">Denegar reserva</button>
                 </div>`
             }
 
@@ -241,7 +241,7 @@ function cargarParticipantes(){
             
             response.forEach(element => {
                 plazas_restantes = element.data.N_participantes - element.data.Participantes.length
-                evento = `<p class='evento'>${element.data.Titulo}: ${plazas_restantes} plazas disponibles <br>rs`
+                evento = `<p class='evento'>${element.data.Titulo}: ${plazas_restantes} plazas disponibles <br>`
                 plazas.innerHTML += evento
             });
         }
